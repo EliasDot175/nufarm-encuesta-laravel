@@ -23,19 +23,30 @@ class EncuestasController extends BaseController {
 
          public function crearEncuesta()
     {
+// llamamos a la función de agregar vendedor en el modelo y le pasamos los datos del formulario 
+            $respuesta = Input::all();
+
+            echo("<pre>");
+                print_r($respuesta);
+            echo "</pre>";
+            die();
+                // $x = new Respuesta();
+                // $x->idUsuarioEncuesta = valor
+                // $x->idEncuestaPregunta = valor
+                // $x->save();
             //Encuesta ID 1
-            $encuesta = DB::table('encuesta')->where('id', '1')->first();
+            //$encuesta = DB::table('encuesta')->where('id', '1')->first();
 
             //Usuario encuesta ID 1
-            $usuario_encuesta = DB::table('usuario_encuesta')->where('id', '1')->first();
+            //$usuario_encuesta = DB::table('usuario_encuesta')->where('id', '1')->first();
 
             //Insert en la base de datos
-            DB::insert("INSERT INTO respuesta (id, idUsuarioEncuesta, idEncuestaPregunta, valor) VALUES (NULL, 1,1, 'test')" );
+            //DB::insert("INSERT INTO respuesta (id, idUsuarioEncuesta, idEncuestaPregunta, valor) VALUES (NULL, 1,1, 'test')" );
 
             //redirecciona al finalizar
             //return Redirect::to('/');
 
-             return View::make('encuesta.completado', array('encuesta' => $encuesta));
+             return View::make('encuesta.completado', array('encuesta' => $encuesta, 'respuesta' => $respuesta));
 
     }
 

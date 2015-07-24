@@ -2,52 +2,64 @@
 
 @section('sidebar')
      	@parent
-	<h1> {{ $encuesta->nombre }}</h1>
+	
 @stop
 
 @section('content')
-       
+       <h1> {{ $encuesta->nombre }}</h1>
 
-{{ Form::open(array('url' => 'encuesta/crear')) }}
-	@foreach($preguntas as $pregunta)
-		{{Form::label('nombre', $pregunta->valor)}}
+       <div class="form">
+       <div class="form-group">
+       	<form role="form" method="POST"  accept-charset="UTF-8" action= {{ URL::route('encuesta') }}>
+	
+       	@foreach($preguntas as $pregunta)
+	
+		<label for="role">{{ $pregunta->valor}}</label>
 		<br>
 
 		@if($pregunta->tipo == 'boolean')
-			{{Form::label('nombre', 'si')}}
-			{{ Form::radio('valor', 'si'); }}
-			{{Form::label('nombre', 'no')}}
-			{{ Form::radio('valor', 'no'); }}
+			<label for="role">Si</label>
+			<input type="radio" name={{ 'pregunta'.$pregunta->id }} value="si">
+			<label for="role">No</label>
+			<input type="radio" name={{ 'pregunta'.$pregunta->id }} value="no">
 		@elseif($pregunta->tipo == 'opciones1-6')
-	   		{{Form::label('nombre', 'Exelente')}}
-			{{ Form::radio('valor', '1'); }}
-			{{Form::label('nombre', 'Muy Buena')}}
-			{{ Form::radio('valor', '2'); }}
-			{{Form::label('nombre', 'Buena')}}
-			{{ Form::radio('valor', '3'); }}
-			{{Form::label('nombre', 'Regular')}}
-			{{ Form::radio('valor', '4'); }}
-			{{Form::label('nombre', 'Mala')}}
-			{{ Form::radio('valor', '5'); }}
-			{{Form::label('nombre', 'Ns/Nc')}}
-			{{ Form::radio('valor', '6'); }}
+			<label for="role">Exelente</label>
+			<input type="radio" name={{ 'pregunta'.$pregunta->id }} value="exelente">
+			<label for="role">Muy Buena</label>
+			<input type="radio" name={{ 'pregunta'.$pregunta->id }} value="muy buena">
+			<label for="role">Buena</label>
+			<input type="radio" name={{ 'pregunta'.$pregunta->id }} value="buena">
+			<label for="role">Regular</label>
+			<input type="radio" name={{ 'pregunta'.$pregunta->id }} value="regular">
+			<label for="role">Mala</label>
+			<input type="radio" name={{ 'pregunta'.$pregunta->id }} value="mala">
+			<label for="role">Ns/Nc</label>
+			<input type="radio" name={{ 'pregunta'.$pregunta->id }} value="ns/nc">
 	   	@elseif($pregunta->tipo == 'opciones1-3')
-	   		{{Form::label('nombre', 'si')}}
-			{{ Form::radio('valor', 'si'); }}
-			{{Form::label('nombre', 'no')}}
-			{{ Form::radio('valor', 'no'); }}
-			{{Form::label('nombre', 'nose')}}
-			{{ Form::radio('valor', 'ns/sc'); }}
+	   		<label for="role">Si</label>
+			<input type="radio"name={{ 'pregunta'.$pregunta->id }} value="no">
+			<label for="role">No</label>
+			<input type="radio" name={{ 'pregunta'.$pregunta->id }} value="si">
+			<label for="role">Ns/Nc</label>
+			<input type="radio" name={{ 'pregunta'.$pregunta->id }} value="ns/nc">
 		@elseif($pregunta->tipo == 'text')
-			{{ Form::text('name', ''); }}
+			<textarea  name={{ 'pregunta'.$pregunta->id }} ></textarea>
 		@endif
-		
 		<br>
 		<br>
 	@endforeach
+	<button type="submit">enviar</button>
 
-    	{{Form::submit('Enviar')}}
-{{ Form::close() }}
+	</form>
+
+	<hr>
+
+       <div class="form">
+       <div class="form-group">
+       	
+       </div>
+</div>
+
 
 
 @stop

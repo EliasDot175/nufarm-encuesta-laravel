@@ -9,5 +9,11 @@
        
 GRACIAS POR COMPLETAR LA ENCUESTA
 
+		@foreach($respuesta as $respuestas)
+	
+
+				{{ $respuestas->valor }}
+	
+		@endforeach
 
 @stop

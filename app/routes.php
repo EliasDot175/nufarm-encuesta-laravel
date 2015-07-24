@@ -37,7 +37,14 @@ Route::group(['before' => 'auth'], function()
 });
 
 Route::get('/', array('uses' => 'EncuestasController@formularioEncuesta'));
-Route::post('encuesta/crear', array('uses' => 'EncuestasController@crearEncuesta'));
+Route::post('encuesta/crear', array('as' => 'encuesta','uses' => 'EncuestasController@crearEncuesta'));
+/*
+Route::get('vendedor', 'VendedorController@mostrarVendedores');
 
+Route::post('vendedor', 'VendedorController@crearVendedor');
+
+Route::get('producto', 'ProductoController@mostrarProductos');
+
+Route::post('producto', 'ProductoController@crearProducto');*/
 
 
