@@ -52,33 +52,16 @@ return array(
 			'prefix'   => '',
 		),
 
-		if (App::environment('local')) {
-		    	// The environment is local
-			'mysql' => array(
-				'driver'    => 'mysql',
-				'host'      => 'localhost',
-				'database'  => 'nufarm_encuesta',
-				'username'  => 'root',
-				'password'  => '',
-				'charset'   => 'utf8',
-				'collation' => 'utf8_unicode_ci',
-				'prefix'    => '',
-			),
-		}
-
-		if (App::environment('local', 'staging')) {
-			// The environment is either local OR staging...
-			'mysql' => array(
-				'driver'    => 'mysql',
-				'host'      => 'localhost',
-				'database'  => 'nufarm_encuesta',
-				'username'  => 'root',
-				'password'  => '',
-				'charset'   => 'utf8',
-				'collation' => 'utf8_unicode_ci',
-				'prefix'    => '',
-			),
-		}
+		'mysql' => array(
+			'driver'    => 'mysql',
+			'host'      => 'localhost',
+			'database'  => 'nufarm_encuesta',
+			'username'  => 'root',
+			'password'  => '',
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+		),
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',
