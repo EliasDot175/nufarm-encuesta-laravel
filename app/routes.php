@@ -32,7 +32,8 @@ Route::group(['before' => 'auth'], function()
 	// esta ruta contiene un parámetro llamado {id}, que sirve para indicar el id del usuario que deseamos buscar
 	// este parámetro es pasado al controlador, podemos colocar todos los parámetros que necesitemos
 	// solo hay que tomar en cuenta que los parámetros van entre llaves {}
-	// si el parámetro es opcional se colocar un signo de interrogación {parámetro?}
+	// si el parámetro es opcional se colocar un signo de interrogación {parámetro?
+}
 
 });
 
