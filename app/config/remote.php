@@ -29,9 +29,10 @@ return array(
 	'connections' => array(
 
 		'production' => array(
-			'host'      => '',
-			'username'  => '',
-			'password'  => '',
+			'host'      => 'localhost',
+			'database'  => 'nmaxx_encuesta',
+			'username'  => 'nmaxx_encuesta',
+			'password'  => 'nma1243*',
 			'key'       => '',
 			'keyphrase' => '',
 			'root'      => '/var/www',
