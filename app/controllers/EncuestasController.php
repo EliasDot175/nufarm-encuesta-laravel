@@ -1,53 +1,106 @@
 <?php 
-use App\Http\Controllers\Controller;
+
 class EncuestasController extends BaseController {
 
-    /**
-     * Mustra la lista con todos los usuarios
-     */
+    /* * * 
+     * * * CREAR FORMULARIO BLOQUEANDO POR IP SIN TOKEN * * *
+     * * */
     public function formularioEncuesta()
     {
-        //listado de preguntas
-        $preguntas = Pregunta::all(); 
+        //Datos encuesta y lista preguntas
+        $encuesta = 1;
+        $preguntas= DB::table('pregunta')->where('idEncuesta', $encuesta)->get();
+        $datosEncuesta = DB::table('encuesta')->where('id', $encuesta)->first();
 
-        //nombre Encuesta
-        $encuesta = DB::table('encuesta')->where('id', '1')->first();
+        //Busca usuario por ip
+        $ip=Request::getClientIp();
+        $usuarioIP= DB::table('users')->where('ip', $ip)->get();
+        if ($usuarioIP) {
+            $mensaje =  'Usted ya ha completado la encuesta, sólo puede realizar esta acción una vez';
+            return View::make('encuesta.mensaje', array('mensaje' => $mensaje));
+        }
 
-        return View::make('encuesta.formulario', array('preguntas' => $preguntas, 'encuesta' => $encuesta));
-
-        // El método make de la clase View indica cual vista vamos a mostrar al usuario 
-        //y también pasa como parámetro los datos que queramos pasar a la vista. 
-        // En este caso le estamos pasando un array con todos los usuarios
+        return View::make('encuesta.formulario', array('preguntas' => $preguntas, 'encuesta' => $datosEncuesta));
     }
 
 
-         public function crearEncuesta()
+    /* * * 
+     * * * CREAR FORMULARIO  TOKEN * * *
+     * * */
+    public function formularioTokenEncuesta($email)
     {
-// llamamos a la función de agregar vendedor en el modelo y le pasamos los datos del formulario 
-            $respuesta = Input::all();
+        //Datos encuesta y lista preguntas
+        $encuesta = 1;
+        $preguntas = DB::table('pregunta')->where('idEncuesta', $encuesta)->get();
+        $datosEncuesta = DB::table('encuesta')->where('id', $encuesta)->first();
 
-            echo("<pre>");
-                print_r($respuesta);
-            echo "</pre>";
-            die();
-                // $x = new Respuesta();
-                // $x->idUsuarioEncuesta = valor
-                // $x->idEncuestaPregunta = valor
-                // $x->save();
-            //Encuesta ID 1
-            //$encuesta = DB::table('encuesta')->where('id', '1')->first();
+        //Busca usuario por email
+        $usuariosEmail = DB::table('users')->where('email', $email)->first();
+        if ($usuariosEmail ) {
+            $mensaje =  'Usted ya ha completado la encuesta, sólo puede realizar esta acción una vez';
+            return View::make('encuesta.error', array('mensaje' => $mensaje, 'encuesta' => $datosEncuesta));
+        }
 
-            //Usuario encuesta ID 1
-            //$usuario_encuesta = DB::table('usuario_encuesta')->where('id', '1')->first();
+        //Busca usuario por ip
+        $ip=Request::getClientIp();
+        $usuarioIP= DB::table('users')->where('ip', $ip)->get();
+        if ($usuarioIP) {
+            $mensaje =  'Usted ya ha completado la encuesta, sólo puede realizar esta acción una vez';
+            return View::make('encuesta.mensaje', array('mensaje' => $mensaje));
+        }
 
-            //Insert en la base de datos
-            //DB::insert("INSERT INTO respuesta (id, idUsuarioEncuesta, idEncuestaPregunta, valor) VALUES (NULL, 1,1, 'test')" );
-
-            //redirecciona al finalizar
-            //return Redirect::to('/');
-
-             return View::make('encuesta.completado', array('encuesta' => $encuesta, 'respuesta' => $respuesta));
-
+        return View::make('encuesta.formulario', array('preguntas' => $preguntas, 'email' => $email, 'encuesta' => $datosEncuesta));
     }
 
+
+    /* * * 
+     * * * CREAR ENCUESTA * * *
+     * * */
+         public function crearEncuesta($encuesta, $email)
+    {
+            if(Session::token() != Input::get('_token')) {
+                die();
+            }
+
+             $respuesta = Input::all(); //array respuestas form //print_r($respuesta);
+             $datosEncuesta = DB::table('encuesta')->where('id', $encuesta)->first();
+             $cantidad= DB::table('pregunta')->where('idEncuesta', $encuesta)->count();
+
+            //Inserta usuario por email e ip
+            $ip=Request::getClientIp();
+            $usuarioIP= DB::table('users')->where('ip', $ip)->first();
+            $usuario =  $usuarioIP->id;
+
+            $usuariosEmail = DB::table('users')->where('email', $email)->first();
+            if (empty($usuariosEmail )) {
+                    $x = new User();
+                    $x->email =  $email;
+                    $x->nombre =  'anónimo';
+                    $x->ip =  $ip;
+                    $x->save();
+            }else{
+                $mensaje =  'Usted ya ha completado la encuesta, sólo puede realizar esta acción una vez';
+                return View::make('encuesta.error', array('mensaje' => $mensaje, 'encuesta' => $datosEncuesta));
+            }
+
+            //Inserta usuario_encuesta
+            $x = new UsuarioEncuesta();
+            $x->idUsuario = $usuario;
+            $x->idEncuesta = $encuesta;
+            $x->save();
+            $usuarioEnc = DB::table('usuario_encuesta')->where('idUsuario', $usuario)->first();
+            $usuarioEncuesta =  $usuarioEnc->id;
+
+            //Inserta respuestas
+            for ($i=1; $i <= $cantidad; $i++) { 
+                    $valor = Input::get('pregunta'.$i);
+                    $x = new Respuesta();
+                    $x->idUsuarioEncuesta = $usuarioEncuesta;
+                    $x->idEncuestaPregunta = $i;
+                    $x->valor = $valor ;
+                    $x->save();
+             }
+        
+             return View::make('encuesta.completado', array('encuesta' => $datosEncuesta));
+    }
 }

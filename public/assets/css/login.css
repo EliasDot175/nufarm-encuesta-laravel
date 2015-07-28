@@ -1,7 +1,7 @@
 body {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #eee;
+  background-color: #f4f4f4;
 }
 
 .form-signin {
@@ -9,6 +9,22 @@ body {
   padding: 15px;
   margin: 0 auto;
 }
+
+h2{
+    text-align: center;
+    color: #1d5c02;
+}
+
+.btn-login {
+    color: #fff;
+    background-color: #1d5c02;
+    border-color: #1d5c02;
+}
+
+.btn-login:hover {
+    color: #fff;
+}
+
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
   margin-bottom: 10px;

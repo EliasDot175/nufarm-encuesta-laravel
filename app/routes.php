@@ -19,32 +19,17 @@ Route::get('logout', 'AuthController@logOut');
 /*Rutas privadas solo para usuarios autenticados*/
 Route::group(['before' => 'auth'], function()
 {
-	//Route::get('/', 'HomeController@showWelcome');
-	Route::get('admin', array('uses' => 'UsuariosController@mostrarUsuarios'));
-
-	Route::get('usuarios', array('uses' => 'UsuariosController@mostrarUsuarios'));
-
-	Route::get('usuarios/nuevo', array('uses' => 'UsuariosController@nuevoUsuario'));
-
-	
-
-	Route::get('usuarios/{id}', array('uses'=>'UsuariosController@verUsuario'));
-	// esta ruta contiene un parámetro llamado {id}, que sirve para indicar el id del usuario que deseamos buscar
-	// este parámetro es pasado al controlador, podemos colocar todos los parámetros que necesitemos
-	// solo hay que tomar en cuenta que los parámetros van entre llaves {}
-	// si el parámetro es opcional se colocar un signo de interrogación {parámetro?}
+	Route::get('/', array('uses' => 'AdminController@mostrarEncuestas'));
+	Route::get('admin', array('uses' => 'AdminController@mostrarEncuestas'));
+	Route::get('lista-encuestas', array('uses' => 'AdminController@mostrarEncuestas'));
+	Route::get('encuesta-detalle/{id}', array('uses'=>'AdminController@verEncuesta'));
+	// parámetros entre llaves {}, si el parámetro es opcional {parámetro?}
 
 });
 
-Route::get('/', array('uses' => 'EncuestasController@formularioEncuesta'));
-Route::post('encuesta/crear', array('as' => 'encuesta','uses' => 'EncuestasController@crearEncuesta'));
-/*
-Route::get('vendedor', 'VendedorController@mostrarVendedores');
+/*Rutas generales*/
+Route::get('encuesta/{email}', array('uses' => 'EncuestasController@formularioTokenEncuesta'));
+Route::post('encuesta/crear/{encuesta}/{email}', array('as' => 'encuesta','uses' => 'EncuestasController@crearEncuesta'));
 
-Route::post('vendedor', 'VendedorController@crearVendedor');
-
-Route::get('producto', 'ProductoController@mostrarProductos');
-
-Route::post('producto', 'ProductoController@crearProducto');*/
 
 

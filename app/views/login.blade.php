@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Authenticate with Laravel 4.2</title>
+	<title>Nufarm - Encuesta</title>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	{{ HTML::style('assets/css/signin.css') }}
+	{{ HTML::style('assets/css/login.css') }}
 </head>
 <body>
 	<div class="container">
@@ -17,7 +17,14 @@
 				</div>
 			@endif
 
-			<h2 class="form-signin-heading">Log in</h2>
+			@if(Session::has('ok_message'))
+				<div class="alert alert-success">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					{{ Session::get('ok_message') }}
+				</div>
+			@endif
+
+			<h2 class="form-signin-heading">NUFARM</h2>
 
 			{{ Form::label('username', 'Username', ['class' => 'sr-only']) }}
 			{{ Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Username', 'autofocus' => '']) }}
@@ -27,11 +34,11 @@
 
 			<div class="checkbox">
 				<label>
-					{{ Form::checkbox('remember', true) }} Remember me
+					{{ Form::checkbox('remember', true) }} Recordarme
 				</label>
 			</div>
 
-			{{ Form::submit('Log in', ['class' => 'btn btn-primary btn-block']) }}
+			{{ Form::submit('Iniciar sesión', ['class' => 'btn btn-login btn-block']) }}
 	
 		{{ Form::close() }}
 	</div>

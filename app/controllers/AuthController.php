@@ -6,7 +6,7 @@ class AuthController extends BaseController {
 	{
 		if (Auth::check())
 		{
-			return Redirect::to('/');
+			return Redirect::to('admin');
 		}
 		return View::make('login');
 	}
@@ -18,20 +18,18 @@ class AuthController extends BaseController {
 			'password' => Input::get('password')
 		];
 
-		if (Auth::attempt($data, Input::get('remember')))// Como segundo parámetro pasámos el checkbox para sabes si queremos recordar la contraseña
-       
-           	 
+		if (Auth::attempt($data, Input::get('remember'))) // checkbox para recordar la contraseña
 		{
-			// Si nuestros datos son correctos mostramos la página de inicio
-			return Redirect::intended('/');
+			return Redirect::intended('admin'); // Si los datos son correctos mostramos la página de inicio
 		}
-		return Redirect::back()->with('error_message', 'Invalid data')->withInput();
+
+		return Redirect::back()->with('error_message', 'Usuario o contraseña incorrectos')->withInput();
 	}
 
 	public function logOut()
 	{
 		Auth::logout();
-		return Redirect::to('login')->with('error_message', 'Logged out correctly');
+		return Redirect::to('login')->with('ok_message', 'Sesión finalizada correctamente');
 	}
 
 }

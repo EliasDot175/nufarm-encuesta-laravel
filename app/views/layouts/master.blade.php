@@ -1,21 +1,26 @@
 <!doctype html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Authenticate with Laravel 4.2</title>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	{{ HTML::style('assets/css/signin.css') }}
-</head>
-<body>
-        @section('sidebar')
-            <h3>Encuesta Nufarm</h3>
-            <a href="{{ action('AuthController@logOut') }}">Log out</a>
-        @show
+            <head>
+                        <meta charset="UTF-8">
+            	           <title>Nufarm - Encuesta</title>
+            	           <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            	           {{ HTML::style('assets/css/signin.css') }}
+            </head>
+            <body>
+                            <!-- contenedor -->
+                            <div class="container">
 
-        <div class="container">
-        
-            @yield('content')
-        </div>
+                                        @section('sidebar')
 
-    </body>
+                                                <h3>Encuesta Nufarm</h3>
+                                                <a href="{{ action('AuthController@logOut') }}">Log out</a>
+                                                
+                                        @show
+
+                                        @yield('content')
+
+                            </div>
+                            <!-- //contenedor -->
+
+            </body>
 </html>

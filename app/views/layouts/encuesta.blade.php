@@ -1,24 +1,26 @@
-<html>
-    <body><!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Authenticate with Laravel 4.2</title>
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	
-	   {{HTML::style('assets/css/bootstrap.min.css')}}
-    {{HTML::style('assets/css/jumbotron-narrow.css')}}
-    <link rel="stylesheet" href="assets/css/estilos.css">
-</head>
-<body>
-        @section('sidebar')
-          
-        @show
+<!DOCTYPE html>
+<html lang="es">
+            <head>
+    	           <meta charset="UTF-8">
+    	           <title>Nufarm - Encuesta</title>
+                        {{HTML::style('//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')}}
+                        {{HTML::style('assets/css/bootstrap.min.css')}}
+                        {{HTML::style('assets/css/jumbotron-narrow.css')}}
+                        {{HTML::style('assets/css/estilos.css')}}
+             </head>
 
-        <div class="container">
+             <body>
+                         <!-- contenedor -->
+                        <div class="container">
+                        
+                                        @section('sidebar')
+              
+                                        @show
 
-            @yield('content')
-        </div>
+                                        @yield('content')
+                                        
+                          </div>
+                          <!-- contenedor -->
 
-    </body>
+             </body>
 </html>
