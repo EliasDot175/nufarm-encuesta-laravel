@@ -14,10 +14,10 @@ class EncuestasController extends BaseController {
 
         //Busca usuario por ip
         $ip=Request::getClientIp();
-        $usuarioIP= DB::table('users')->where('ip', $ip)->get();
+        $usuarioIP= DB::table('users')->where('ip', $ip)->first();
         if ($usuarioIP) {
             $mensaje =  'Usted ya ha completado la encuesta, sólo puede realizar esta acción una vez';
-            return View::make('encuesta.mensaje', array('mensaje' => $mensaje));
+            return View::make('encuesta.error', array('mensaje' => $mensaje, 'usuario' => $usuarioIP, 'encuesta' => $datosEncuesta));
         }
 
         return View::make('encuesta.formulario', array('preguntas' => $preguntas, 'encuesta' => $datosEncuesta));
@@ -36,18 +36,14 @@ class EncuestasController extends BaseController {
 
         //Busca usuario por email
         $usuariosEmail = DB::table('users')->where('email', $email)->first();
-        if ($usuariosEmail ) {
+        if ($usuariosEmail && $usuariosEmail != 'anónimo' ) {
             $mensaje =  'Usted ya ha completado la encuesta, sólo puede realizar esta acción una vez';
-            return View::make('encuesta.error', array('mensaje' => $mensaje, 'encuesta' => $datosEncuesta));
+            return View::make('encuesta.error', array('mensaje' => $mensaje, 'usuario' => $usuariosEmail , 'encuesta' => $datosEncuesta));
         }
 
-        //Busca usuario por ip
-        $ip=Request::getClientIp();
-        $usuarioIP= DB::table('users')->where('ip', $ip)->get();
-        if ($usuarioIP) {
-            $mensaje =  'Usted ya ha completado la encuesta, sólo puede realizar esta acción una vez';
-            return View::make('encuesta.mensaje', array('mensaje' => $mensaje));
-        }
+        //return Redirect::to('encuesta/crear/{encuesta}/{email}');
+
+        //return Redirect::route('encuesta', array('email' => $email, 'encuesta' => 1));
 
         return View::make('encuesta.formulario', array('preguntas' => $preguntas, 'email' => $email, 'encuesta' => $datosEncuesta));
     }
