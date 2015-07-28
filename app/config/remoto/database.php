@@ -22,7 +22,7 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'cr8-dallas',
+			'host'      => '108.174.151.163',
 			'database'  => 'nmaxx_encuesta',
 			'username'  => 'nmaxx_encuesta',
 			'password'  => 'nma1243*',
