@@ -53,26 +53,16 @@ return array(
 		),
 
 		'mysql' => array(
-			/*'driver'    => 'mysql',
-			'host'      => 'us-cdbr-iron-east-02.cleadb.net',
-			'database'  => 'heroku_1d34ce0a24ce7de',
-			'username'  => 'ba1b1885a69efd',
-			'password'  => 'd55cc4cd',
+			'driver'    => 'mysql',
 			'host'      => 'localhost',
 			'database'  => 'nufarm_encuesta',
 			'username'  => 'root',
-			'password'  => '',*/
-			'host'      => '162.210.48.7',
-			'database'  => 'nmaxx_encuesta',
-			'username'  => 'nmaxx_admin',
-			'password'  => 'Pass.1234',
+			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
-			"unix_socket" => "/tmp/mysql.sock",
 		),
-/*CLEARDB_DATABASE_URL: mysql://ba1b1885a69efd:d55cc4cd@us-cdbr-iron-east-02.clea
-db.net/heroku_1d34ce0a24ce7de?reconnect=true*/
+
 		'pgsql' => array(
 			'driver'   => 'pgsql',
 			'host'     => 'localhost',
