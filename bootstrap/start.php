@@ -27,10 +27,14 @@ $app = new Illuminate\Foundation\Application;
 $env = $app->detectEnvironment(array(
 
 	//'local' => array('homestead'),
-	'local' => array('162.210.48.7'),
-	'remoto'=> array('162.210.48.7'),
+	'local' => array('localhost'),
+	'development'=> array('us-cdbr-iron-east-02.cleadb.net'),
 
 ));
+
+$env = $app->detectEnvironment(function() {
+       return 'development';
+});
 
 /*
 |--------------------------------------------------------------------------
