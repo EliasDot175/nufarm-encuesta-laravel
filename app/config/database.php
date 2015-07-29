@@ -54,14 +54,18 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
+			'host'      => 'us-iron-auto-dca-01-b-bh.cleardb.net',
+			'database'  => 'heroku_df5261881e4cb81',
+			'username'  => 'b2d8fe50ec3b60',
+			'password'  => 'c58aa050',
 			/*'host'      => 'localhost',
 			'database'  => 'nufarm_encuesta',
 			'username'  => 'root',
-			'password'  => '',*/
+			'password'  => '',
 			'host'      => '162.210.48.7',
 			'database'  => 'nmaxx_encuesta',
 			'username'  => 'nmaxx_admin',
-			'password'  => 'Pass.1234',
+			'password'  => 'Pass.1234',*/
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
