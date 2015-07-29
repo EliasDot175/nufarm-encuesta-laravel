@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'us-iron-auto-dca-01-b-bh.cleardb.net',
-			'database'  => 'heroku_df5261881e4cb81',
-			'username'  => 'b2d8fe50ec3b60',
-			'password'  => 'c58aa050',
+			'host'      => 'us-cdbr-iron-east-02.cleadb.net',
+			'database'  => 'heroku_1d34ce0a24ce7de',
+			'username'  => 'ba1b1885a69efd',
+			'password'  => 'd55cc4cd',
 			/*'host'      => 'localhost',
 			'database'  => 'nufarm_encuesta',
 			'username'  => 'root',
@@ -71,7 +71,8 @@ return array(
 			'prefix'    => '',
 			"unix_socket" => "/tmp/mysql.sock",
 		),
-
+/*CLEARDB_DATABASE_URL: mysql://ba1b1885a69efd:d55cc4cd@us-cdbr-iron-east-02.clea
+db.net/heroku_1d34ce0a24ce7de?reconnect=true*/
 		'pgsql' => array(
 			'driver'   => 'pgsql',
 			'host'     => 'localhost',
