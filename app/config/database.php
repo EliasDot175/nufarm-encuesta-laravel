@@ -63,8 +63,8 @@ return array(
 			'host'      => '162.210.48.7',
 			'database'  => 'nmaxx_encuesta',
 			'username'  => 'nmaxx_admin',
-			'password'  => 'Pass.1234',
-			-----------*/
+			'password'  => 'Pass.1234',*/
+			
 			/*--- HEROKU ---*/
 			/*'host'      => 'us-cdbr-iron-east-02.cleardb.net',
 			'database'  => 'heroku_1d34ce0a24ce7de',
