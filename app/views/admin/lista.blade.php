@@ -2,19 +2,29 @@
 
 @section('sidebar')
      @parent
-     <p>Lista de encuestas</p>
+     <script  type="text/javascript" >
+     	$(document).ready(function(){
+		//mostrar categoria
+		$("#lista-encuestas").css({
+			color: '#fff',
+    			background: '#0e7e02'
+		});
+	});
+     </script>
 @stop
 
 @section('content')
-        <h1>Encuestas</h1>
-	<table>
+	<div class="panel panel-success">
+        		<h1 class="text-uppercase">Cantidad de Encuestas realizadas: <span>{{ $users = DB::table('usuario_encuesta')->count(); }}</span></h1>
+        	</div>
+	<table class="table table-striped">
 		<thead>
 			<tr>
 		             	<th> ID Encuesta </th>
-		             	<th> ID Usuario</th>
-		             	<th> IP Usuario</th>
-		             	<th> Email Usuario</th>
-		             	<th> Ver </th>
+		             	<th> ID Usuario </th>
+		             	<th> IP Usuario </th>
+		             	<th> Email Usuario </th>
+		             	<th> Detalle </th>
 		            </tr>
 		</thead>
 		<tbody>

@@ -2,6 +2,21 @@
 class AdminController extends BaseController {
 
      /* * *
+     * * * METRICAS ENCUESTAS * * *
+     * * */
+    public function metricasEncuestas()
+    {
+        $encuesta = UsuarioEncuesta::all(); 
+        //Datos encuesta y lista preguntas
+        $encuesta = 1;
+        $preguntas= DB::table('pregunta')->where('idEncuesta', $encuesta)->get();
+        $datosEncuesta = DB::table('encuesta')->where('id', $encuesta)->first();
+
+        return View::make('admin.metricas', array('encuestas' => $encuesta,'preguntas' => $preguntas));
+    }
+
+
+    /* * *
      * * * LISTA DE ENCUESTAS * * *
      * * */
     public function mostrarEncuestas()
@@ -15,7 +30,7 @@ class AdminController extends BaseController {
     /* * *
      * * * VER ENCUESTA* * *
      * * */
-    public function verEncuesta($id) //id usuario_encuesta
+    public function verEncuestas($id) //id usuario_encuesta
     {
         //respuestas
         $respuestas = DB::table('respuesta')->where('idUsuarioEncuesta', $id)->get();
