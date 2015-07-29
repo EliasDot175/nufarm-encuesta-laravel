@@ -54,10 +54,14 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
+			/*'host'      => 'localhost',
 			'database'  => 'nufarm_encuesta',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => '',*/
+			'host'      => '162.210.48.7',
+			'database'  => 'nmaxx_encuesta',
+			'username'  => 'nmaxx_admin',
+			'password'  => 'Pass.1234',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
