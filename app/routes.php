@@ -28,8 +28,9 @@ Route::group(['before' => 'auth'], function()
 });
 
 /*Rutas generales*/
-Route::get('encuesta/{email}', array('uses' => 'EncuestasController@formularioTokenEncuesta'));
-Route::post('encuesta/crear/{encuesta}/{email}', array('as' => 'encuesta','uses' => 'EncuestasController@crearEncuesta'));
+Route::get('{email}/{nombre?}/{empresa?}', array('uses' => 'EncuestasController@formularioTokenEncuesta'));
+Route::post('encuesta/usuario-identificado', array('as' => 'usuario-identificado', 'uses' => 'EncuestasController@formEncuesta'));
+Route::post('crear/{encuesta}/{email}/{nombre?}/{empresa?}', array('as' => 'encuesta','uses' => 'EncuestasController@crearEncuesta'));
 
 
 

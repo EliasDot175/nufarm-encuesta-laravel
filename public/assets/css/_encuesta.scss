@@ -1,0 +1,293 @@
+@font-face{
+	font-family: "BrooklynSamuelsFive-Bold";
+	src: url('../fuentes/Samuelstype - BrooklynSamuelsFive-Bold.otf');
+}
+
+$violeta: rgba(142,50,137,.9);
+
+body{
+	background: #3D5927 url("../imagenes/fondo.jpg"); 
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center; 
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+//acordeon
+.panel-acordeon {
+	color: #333;
+	background-color: rgba(0,0,0,.3);;
+	padding: 10px 0;
+	min-height: 50px;
+	cursor: pointer;
+	float: left;
+	width: 100%;
+
+	label{
+		margin-top: 5px;
+		cursor: pointer;
+	}
+
+	.text-pregunta {
+		width: 80% !important;
+	}
+}
+
+.contenido-acordeon {
+	background-color: rgba(255,255,255,.1);
+	float: left;
+	width: 100%;
+	   
+}
+
+
+
+.contenedor-encuesta{
+	display: block;
+	width: 100%;
+	font-family: 'BrooklynSamuelsFive-Bold';
+
+	.contenido{
+		width:60%;
+		margin: 0 20%;
+		display: block;
+		float: left;
+	}
+
+	.head{
+		background: rgba(0,148,72,.8);
+		height: 100px;
+
+		img{
+			margin-top: 15px;
+		}
+	}
+
+	.item-preguntas{
+		background: rgba(0,148,72,.2);
+		height: 100px;
+		padding-top: 25px;
+	}	
+
+	.numero{
+		width: 50px;
+		height: 50px;
+		border-radius: 100%;
+		border: 2px solid #fff;
+		float: left;
+		margin-right: 15px;
+		cursor: pointer;
+
+		p{
+			color: #fff;
+			font-size: 30px;
+			text-align: center;
+			margin-top: 3px;
+			margin-left: -1px;
+		}
+	}
+
+	.numero:hover{
+		width: 50px;
+		height: 50px;
+		border-radius: 100%;
+		border: none;
+		background-color: $violeta;
+		border: 2px solid $violeta;
+
+		p{
+			color: #A2B876;
+		}
+	}
+
+	.num-violeta{
+		width: 50px;
+		height: 50px;
+		border-radius: 100%;
+		border: 1px solid $violeta;
+		float: left;
+		margin-right: 15px;
+		float: left;
+
+		p{
+			color: $violeta;
+			font-size: 30px;
+			text-align: center;
+			margin-top: 3px;
+			margin-left: -1px;
+		}
+	}
+
+	.letra{
+		width: 30px;
+		height: 30px;
+		border-radius: 100%;
+		border: 2px solid rgba(255,255,255,.5);
+		float: left;
+		margin-right: 15px;
+		float: left;
+
+		p{
+			color: rgba(255,255,255,.5);
+			font-size: 20px;
+			text-align: center;
+			margin-top: 0px;
+			margin-left: -1px;
+		}
+	}
+
+	.block-pregunta-acordeon{
+		margin-bottom: 1px !important;
+	}
+
+
+
+	.block-pregunta{
+		//margin-bottom: 30px;
+
+		.preguntas{
+			width: 100%;
+			float: leftt;
+			height: 150px;
+			background-color: rgba(0,0,0,.2);
+			margin-bottom: 1px;
+			display: table;
+			box-sizing: border-box;
+			
+
+			.block{
+				display: table-cell;
+				vertical-align: middle;
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
+				margin-top: 0;
+			}
+
+			.contenido {
+				height: 150px;
+			}
+		}
+
+		.campo{
+			background-color: rgba(0,0,0,.2);
+			margin-bottom: 1px;
+			display: inline-block;
+			text-align: center;
+			padding: 20px 0;
+			box-sizing: border-box;
+
+			.block{
+				width: auto;
+				display: block;
+				margin: 0 auto;
+				display: inline-block;
+			}
+		}
+	}
+
+	.comentario{
+		float: left;
+		position: relative;
+
+		label{
+			//margin-bottom: -60px;
+			position: absolute;
+			top: 50px;
+			left: 20px;
+
+			img{
+				float: left;
+			}
+
+			p{
+				float: left;
+				margin-top: 3px;
+				margin-left: 10px;
+			}
+			
+		}
+
+		.img{
+			height: 16px;
+			width: 100%;
+			border: none;
+			background-image:url('../imagenes/comentario2.png');
+			background-repeat: no-repeat;
+			float: left;
+			background-position-x: 50px;
+			opacity: .8;
+			margin-top: 10px;
+		}
+
+		textarea{
+			padding-top: 60px;
+			padding-left: 50px;
+			background-color: rgba(255,255,255,.2);
+			width: 400px;
+			border: none;
+			min-height: 200px;
+			height: auto;
+			float: left;
+			border-radius: none;
+			background-image:url('../imagenes/linea-comentario.png');
+			background-repeat: repeat-y;
+			background-size: 100%;
+			line-height: 37px;
+			margin-bottom: 20px;
+		}
+		
+	}
+
+	
+
+	.text-pregunta{
+		float: left;
+		width: 60%;
+		color: #fff;
+	}
+
+	.barra{
+		width: 90px;
+		float: left;
+		margin: 0 -10px;
+
+		img{
+			width: 100%;
+		}
+	}
+
+	.check-radio-icon{
+		width: 100px;
+		float: left;
+		margin-right: 10px;
+		padding: 5px;
+		padding-top: 10px;
+
+		.item-img{
+			display: block;
+			margin: 0 auto;
+			width: 60px;
+		}
+
+		input{
+			cursor: pointer;
+		}
+
+		.item{
+			width: 100%;
+			float: leftt;
+
+			p{
+				text-align: center;
+				color: #fff;
+			}
+			
+		}
+
+
+	}
+
+}

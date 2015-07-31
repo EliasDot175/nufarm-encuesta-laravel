@@ -20,23 +20,21 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-		             	<th> ID Encuesta </th>
-		             	<th> ID Usuario </th>
-		             	<th> IP Usuario </th>
-		             	<th> Email Usuario </th>
+		             	<th> Nombre </th>
+		             	<th> Empresa </th>
+		             	<th> Email </th>
 		             	<th> Detalle </th>
 		            </tr>
 		</thead>
 		<tbody>
   			@foreach($encuestas as $encuesta)
 			             <tr>
-			             	<td>{{ $encuesta->idEncuesta }}</td>
-			                	<?php  
+			             	<?php  
 				   		$usuarios = $encuesta->idUsuario;
 				  		$usuario = DB::table('users')->where('id', $usuarios)->first();
 				        	?>
-			             	<td >{{ $usuario ->id}}</td>
-			             	<td >{{ $usuario ->ip}}</td>
+			             	<td >{{ $usuario ->nombre}}</td>
+			             	<td >{{ $usuario ->empresa}}</td>
 			             	<td >{{ $usuario ->email }}</td>
 			              	<td>{{ HTML::link( 'encuesta-detalle/'.$encuesta->id , 'ver' ) }}</td>
 			             </tr>

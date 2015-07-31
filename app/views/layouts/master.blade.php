@@ -3,10 +3,10 @@
             <head>
                         <meta charset="UTF-8">
             	           <title>Nufarm - Encuesta</title>
-            	           <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-                           {{ HTML::style('assets/css/estilos.css') }}
-                           {{ HTML::style('assets/css/admin.css') }}
-                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+                                {{ HTML::style('assets/bootstrap-3.3.4\css/bootstrap.min.css') }}
+                                {{ HTML::style('assets/css/admin.css') }}
+                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+                                <script src="assets/bootstrap-3.3.4/js/bootstrap.min.js"></script>
             </head>
             <body>
                             <!-- contenedor -->

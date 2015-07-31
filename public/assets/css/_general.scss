@@ -1,0 +1,139 @@
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, 
+.col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, 
+.col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, 
+.col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, 
+.col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11,
+.col-xs-12, .col-sm-12, .col-md-12, .col-lg-12{
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+
+ul, li{
+	text-decoration: none;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+:focus {
+	outline: 0;
+}
+
+.background-cover{
+	background-repeat: no-repeat;
+	background-size: cover ;
+	background-position: center;
+}
+
+.titulo-header{
+      font-size: 25px;
+      color: #fff;
+      text-align: center;
+      background-color: #999;
+      border-radius: 5px;
+      padding: 40px;
+      line-height: 30px;
+}
+
+h3{
+    font-size: 14px;
+}
+
+
+.mensaje{
+	width: 100%;
+	font-weight: normal;
+      	text-align: center;
+    	border: solid 1px #999;
+    	border-radius: 10px;
+
+    	h1{
+		text-align: center;
+		font-size: 25px;
+		margin: 10px 0 !important;
+		padding: 0 !important;
+	}
+
+	.error{
+		color: #a52609;
+	}
+
+	.ok{
+		color: #0f7a07;
+	}
+
+	p{
+		text-align: center;
+		margin:  10px 0 !important;
+	}
+}
+
+.form-encuesta{
+	width: 100%;
+
+	textarea{
+		width: 100%;
+		font-weight: normal;
+		height: 60px;
+		border-radius: 5px;
+		border: 1px solid rgba(0,0,0,.2);
+	}
+
+    	.pregunta{
+		width: 100%;
+		margin-top: 30px;
+		float: left;
+	}
+
+	.sub-pregunta{
+		width: 100%;
+		font-weight: normal !important;
+		margin-top: 10px;
+		float: left;
+		font-size: 12px;
+	}
+
+	.titulo-pregunta{
+		width: 100%;
+		margin-top: 30px;
+		float: left;
+	}
+
+	.item-pregunta{
+		color: #2c6314;
+		font-weight: bold;
+	}
+
+	.boton{
+		background-color: #2c6314;
+		color: #fff;
+		width: 100px;
+		height: 30px;
+		border: none;
+		border-radius: 5px;
+		margin-top: 10px;
+		text-transform: uppercase;
+	}
+
+	.campo{
+		width: 100%;
+		font-weight: normal;
+		float: left;
+
+		.check-radio{
+			float: left;
+			margin-right: 10px;
+			border: 1px solid rgba(0,0,0,.2);
+			padding: 5px;
+			border-radius: 5px;
+
+			input{
+				margin: 0 auto;
+				display: block;
+			}	
+		}
+
+	}
+
+
+}
