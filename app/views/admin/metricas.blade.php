@@ -14,33 +14,69 @@
 @stop
 
 @section('content')
-	<div class="panel panel-success">
-        		<h1 class="text-uppercase">Cantidad de Encuestas realizadas: <span>{{ $users = DB::table('usuario_encuesta')->count(); }}</span></h1>
-        	</div>
-
-
 	<div class="metricas">
-			<?php $flag=0; ?>
-		       	@foreach($preguntas as $pregunta)
-	       			<!--Titulo grupo preguntas -->
-	       			@if($pregunta->grupoPreguntas != null  and $flag!=$pregunta->grupoPreguntas)
-					<?php 
-						$grupoId = $pregunta->grupoPreguntas;
-						$grupo = DB::table('titulo_preguntas')->where('id', $grupoId)->first();
-						$pregunta2 = $grupo->valor;
-						$flag = $pregunta->grupoPreguntas; 
-					?>
-					<label class="titulo-pregunta item-pregunta text-uppercase" for="role">{{ $pregunta2}}</label>
-				@endif	
-				<!--Titulo pregunta-->
 
+		<div class="panel panel-success">
+	        		<h1 class="text-uppercase">Cantidad de Encuestas realizadas: <span>{{ $users = DB::table('usuario_encuesta')->count(); }}</span></h1>
+	        	</div>
+
+
+	
+
+			<?php 
+				//contadores
+				$ident=1; 
+				$letra = "A";
+				$i = "A";
+				$c = 1;
+				$val = 1;
+			?>
+			
+		       	@foreach($preguntas as $pregunta)
+		       	<?php $valueTipo = $pregunta->tipo;
+				$tipoValue = DB::table('tipo_dato')->where('id', $valueTipo)->first();
+				$tipo = $tipoValue->valor; 
+			?>
+
+
+				<?php
+					//tipo de respuesta ( exelente-muy bueno-bueno -regunal-malo  /  si-no)
+					$valueTipo = $pregunta->tipo;
+					$tipoValue = DB::table('tipo_dato')->where('id', $valueTipo)->first();
+					$tipo = $tipoValue->valor;
+					//identificacion (número o letra)
+					$valueIdentificacion = $pregunta->identificacion;
+					$tipoIdentificacion = DB::table('identificacion_preguntas')->where('id', $valueIdentificacion)->first();
+					$identificacion = $tipoIdentificacion->valor;
+				?>
+
+				@if($identificacion == 'numero')
+				<div class="block-pregunta col-xs-12 col-sm-12 col-md-12 ol-lg-12">
+					<div class="preguntas col-xs-12 col-sm-12 col-md-12 ol-lg-12">
+						<div class="contenido">
+							<div id="pregunta<?php echo $ident; ?>" class="block num-violeta">
+				                                       	<p>0 <?php echo $ident; ?> </p>         
+				                               	</div>
+				                               	<?php $ident = $ident + 1; ?>
+							<!-- pregunta -->
+							<label class="block text-pregunta text-uppercase"  for="role">{{ $pregunta->valor}}</label>
+							<!-- //pregunta -->
+						</div>
+					</div>
+				</div>
+				
+			             @elseif($identificacion == 'null')
+			             
+
+
+
+		                          @endif
+
+	       		
 				<!--campos-->
 		       		<div class="campo">
-					@if($pregunta->tipo == 'boolean')
-						<!-- pregunta -->
-						<label class="pregunta item-pregunta text-uppercase"  for="role">{{ $pregunta->valor}}</label>
-						<!-- pregunta -->
-	
+					@if($tipo == 'si-no')
+
 						<table class="table table-striped">
 							<thead>
 								<tr>
@@ -56,12 +92,10 @@
 						       	</tbody>
 						</table>
 
-					@elseif($pregunta->tipo == 'opciones1-6')
-						<!-- pregunta -->
-						<label class="sub-pregunta item-pregunta text-uppercase"  for="role">{{ $pregunta->valor}}</label>
-						<!-- pregunta -->
-				
+						<hr>
 
+					@elseif($tipo == 'e-mb-b-r-m-ns/nc')
+						<h5>{{ $pregunta->valor}}</h5>
 						<table class="table table-striped">
 							<thead>
 								<tr>
@@ -86,10 +120,8 @@
 						</table>
 
 
-					@elseif($pregunta->tipo == 'opciones1-3')
-						<!-- pregunta -->
-						<label class="pregunta item-pregunta text-uppercase"  for="role">{{ $pregunta->valor}}</label>
-						<!-- pregunta -->
+					@elseif($tipo == 'si-no-ns/nc')
+
 						<table class="table table-striped">
 							<thead>
 								<tr>
@@ -107,16 +139,85 @@
 						       	</tbody>
 						</table>
 
-					@elseif($pregunta->tipo == 'text')
-						<!-- pregunta -->
-						<label  class="pregunta item-pregunta text-uppercase"  for="role">{{ $pregunta->valor}}</label>
-						<!-- pregunta -->
-						{{ $users = DB::table('respuesta')->where('idEncuestaPregunta', $pregunta->id)->count(); }}
-					@elseif($pregunta->tipo == 'sub-text')
-						<!-- pregunta -->
-						<label  class="sub-pregunta text-uppercase"  for="role">{{ $pregunta->valor}}</label>
-						<!-- pregunta -->
-						{{ $users = DB::table('respuesta')->where('idEncuestaPregunta', $pregunta->id)->count(); }}
+					@elseif($tipo == 'Tsi-Tno-Tns/nc')
+
+						<table class="table table-striped">
+							<thead>
+								<tr>
+							             	<th> Tengo Interes</th>
+							             	<th> No Tengo Interes</th>
+							             	<th> ns/nc</th>
+							            </tr>
+							</thead>
+							<tbody>
+								<tr>
+								          <td>{{ $users = DB::table('respuesta')->where('valor', 'si')->where('idEncuestaPregunta', $pregunta->id)->count(); }}</td>
+									<td>{{ $users = DB::table('respuesta')->where('valor', 'no')->where('idEncuestaPregunta', $pregunta->id)->count(); }}</td>
+									<td>{{ $users = DB::table('respuesta')->where('valor', 'ns/nc')->where('idEncuestaPregunta', $pregunta->id)->count(); }}</td>
+								</tr>
+						       	</tbody>
+						</table>
+
+					@elseif($tipo == 'mucho-poco-nada')
+
+						<table class="table table-striped">
+							<thead>
+								<tr>
+							             	<th> Mucho</th>
+							             	<th> Poco</th>
+							             	<th> Nada</th>
+							            </tr>
+							</thead>
+							<tbody>
+								<tr>
+								          <td>{{ $users = DB::table('respuesta')->where('valor', 'si')->where('idEncuestaPregunta', $pregunta->id)->count(); }}</td>
+									<td>{{ $users = DB::table('respuesta')->where('valor', 'no')->where('idEncuestaPregunta', $pregunta->id)->count(); }}</td>
+									<td>{{ $users = DB::table('respuesta')->where('valor', 'ns/nc')->where('idEncuestaPregunta', $pregunta->id)->count(); }}</td>
+								</tr>
+						       	</tbody>
+						</table>
+
+					@elseif($tipo == 'sub-text')
+						<h5>{{ $pregunta->valor}}</h5>
+
+						<?php 
+							$respuestas = DB::table('respuesta')->where('idEncuestaPregunta', $pregunta->id)->get(); 
+							$resp = DB::table('respuesta')->where('idEncuestaPregunta', $pregunta->id)->count();
+						?>
+						
+						@if( $resp != 0 )
+							<p>Cantidad de  Respuestas: {{ $resp }}</p>
+							@foreach($respuestas as $respuesta)
+						     		<ul class="list-group">
+							        		<li class="list-group-item">  {{ $respuesta->valor }}</li>
+							        	</ul>
+							@endforeach
+						@else
+							<p>No hay comentarios</p>
+
+						@endif
+					
+
+					@elseif($tipo == 'comentario-acordeon')
+						<h6>{{ $pregunta->valor}}</h6>
+
+						<?php 
+							$respuestas = DB::table('respuesta')->where('idEncuestaPregunta', $pregunta->id)->get(); 
+							$resp = DB::table('respuesta')->where('idEncuestaPregunta', $pregunta->id)->count();
+						?>
+						
+						@if( $resp != 0 )
+							<p>Cantidad de  Respuestas: {{ $resp }}</p>
+							@foreach($respuestas as $respuesta)
+						     		<ul class="list-group">
+							        		<li class="list-group-item">  {{ $respuesta->valor }}</li>
+							        	</ul>
+							@endforeach
+						@else
+							<p>No hay comentarios</p>
+
+						@endif
+				
 					@endif
 				</div>
 				<!--campos-->

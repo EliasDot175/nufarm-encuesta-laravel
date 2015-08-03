@@ -32,14 +32,18 @@ body{
 
 	.text-pregunta {
 		width: 80% !important;
+		font-size: 14px !important;
 	}
 }
 
 .contenido-acordeon {
-	background-color: rgba(255,255,255,.1);
+	background-color: rgba(255,255,255,.06);
 	float: left;
-	width: 100%;
-	   
+	width: 100%;   
+}
+
+.item-pagina{
+	display: none;
 }
 
 
@@ -48,6 +52,8 @@ body{
 	display: block;
 	width: 100%;
 	font-family: 'BrooklynSamuelsFive-Bold';
+	margin-bottom: 150px;
+	float: left;
 
 	.contenido{
 		width:60%;
@@ -57,11 +63,38 @@ body{
 	}
 
 	.head{
-		background: rgba(0,148,72,.8);
+		//background: rgba(0,148,72,.8);
 		height: 100px;
+		background-image:url('../imagenes/header.png') ;
+		background-size: cover;
+		repeat: no-repeat;
 
 		img{
 			margin-top: 15px;
+			width: 250px;
+		}
+	}
+
+	.footer{
+		//background: rgba(0,148,72,.8);
+		height: 100px;
+		background-image:url('../imagenes/footer.png') ;
+		background-size: cover;
+		repeat: no-repeat;
+		position: fixed;
+		width: 100%;
+		bottom: 0;
+		background-repeat: no-repeat;
+		background-position: center; 
+		background-position-y: 0;
+
+
+		img{
+			margin-top: 15px;
+			width: 200px;
+			display: block;
+			margin: 0 auto;
+			margin-top: 30px;
 		}
 	}
 
@@ -69,6 +102,19 @@ body{
 		background: rgba(0,148,72,.2);
 		height: 100px;
 		padding-top: 25px;
+
+		.activo{
+			width: 50px;
+			height: 50px;
+			border-radius: 100%;
+			border: none;
+			background-color: $violeta;
+			border: 2px solid $violeta;
+
+			p{
+				color: #A2B876;
+			}
+		}
 	}	
 
 	.numero{
@@ -78,7 +124,6 @@ body{
 		border: 2px solid #fff;
 		float: left;
 		margin-right: 15px;
-		cursor: pointer;
 
 		p{
 			color: #fff;
@@ -89,7 +134,7 @@ body{
 		}
 	}
 
-	.numero:hover{
+	/*.numero:hover{
 		width: 50px;
 		height: 50px;
 		border-radius: 100%;
@@ -100,7 +145,7 @@ body{
 		p{
 			color: #A2B876;
 		}
-	}
+	}*/
 
 	.num-violeta{
 		width: 50px;
@@ -147,6 +192,28 @@ body{
 	.block-pregunta{
 		//margin-bottom: 30px;
 
+		.sub-preguntas{
+			width: 100%;
+			float: leftt;
+			background-color: rgba(0,0,0,.2);
+			display: table;
+			box-sizing: border-box;
+			
+
+			.block{
+				display: table-cell;
+				vertical-align: middle;
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
+				margin-top: 0;
+			}
+
+			.contenido {
+				height: auto;
+			}
+		}
+
 		.preguntas{
 			width: 100%;
 			float: leftt;
@@ -188,6 +255,70 @@ body{
 		}
 	}
 
+	.block-respuesta{
+		background-color: rgba(0,0,0,.2);
+
+		.sub-preguntas{
+			width: 100%;
+			float: leftt;
+			//background-color: rgba(0,0,0,.2);
+			display: table;
+			box-sizing: border-box;
+			
+
+			.block{
+				display: table-cell;
+				vertical-align: middle;
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
+				margin-top: 0;
+			}
+
+			.contenido {
+				height: auto;
+			}
+		}
+
+		.preguntas{
+			width: 100%;
+			float: leftt;
+			height: 150px;
+			background-color: rgba(0,0,0,.2);
+			margin-bottom: 1px;
+			display: table;
+			box-sizing: border-box;
+			
+
+			.block{
+				display: table-cell;
+				vertical-align: middle;
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
+				margin-top: 0;
+			}
+
+			.contenido {
+				height: 150px;
+			}
+		}
+
+		.campo{
+			display: inline-block;
+			text-align: center;
+			padding: 20px 0;
+			box-sizing: border-box;
+
+			.block{
+				width: auto;
+				display: block;
+				margin: 0 auto;
+				display: inline-block;
+			}
+		}
+	}
+
 	.comentario{
 		float: left;
 		position: relative;
@@ -206,6 +337,7 @@ body{
 				float: left;
 				margin-top: 3px;
 				margin-left: 10px;
+				width: 80%;
 			}
 			
 		}
@@ -232,11 +364,80 @@ body{
 			height: auto;
 			float: left;
 			border-radius: none;
-			background-image:url('../imagenes/linea-comentario.png');
-			background-repeat: repeat-y;
+			background-image:url('../imagenes/linea-comentario2.png');
+			background-repeat: no-repeat;
 			background-size: 100%;
 			line-height: 37px;
 			margin-bottom: 20px;
+			background-position-y: 80px;
+		}
+
+		.text-pregunta {
+			width: 100%;
+			font-size: 14px !important;
+		}
+		
+	}
+
+	.comentario-b{
+		float: left;
+		position: relative;
+		width: 400px;
+		margin-left: -200px;
+		left: 50%;
+
+		label{
+			//margin-bottom: -60px;
+			position: absolute;
+			top: 20px;
+			left: 20px;
+
+			img{
+				float: left;
+			}
+
+			p{
+				float: left;
+				margin-top: 3px;
+				margin-left: 10px;
+				width: 80%;
+			}
+			
+		}
+
+		.img{
+			height: 16px;
+			width: 100%;
+			border: none;
+			background-image:url('../imagenes/comentario2.png');
+			background-repeat: no-repeat;
+			float: left;
+			background-position-x: 50px;
+			opacity: .8;
+			margin-top: 10px;
+		}
+
+		textarea{
+			padding-top: 60px;
+			padding-left: 50px;
+			background-color: rgba(255,255,255,.2);
+			width: 400px;
+			border: none;
+			min-height: 200px;
+			height: auto;
+			float: left;
+			border-radius: none;
+			background-image:url('../imagenes/linea-comentario2.png');
+			background-repeat: no-repeat;
+			background-size: 100%;
+			line-height: 37px;
+			margin-bottom: 20px;
+			background-position-y: 80px;
+		}
+
+		.text-pregunta {
+			width: 100%;
+			font-size: 14px !important;
 		}
 		
 	}
@@ -247,6 +448,7 @@ body{
 		float: left;
 		width: 60%;
 		color: #fff;
+		font-size: 18px;
 	}
 
 	.barra{
@@ -289,5 +491,74 @@ body{
 
 
 	}
+
+	.footer-form{
+		z-index: 5;
+
+		.boton{
+			background-color: transparent;
+			cursor: pointer;
+		}
+
+		.boton-rigth{
+			float: right;
+		}
+
+		.boton-left{
+			float: left;
+		}
+	}
+
+	
+
+}
+
+
+// ==========================================================================
+/* RESPONSIVE - DEFAULT */
+// ==========================================================================
+
+/*mobile--------------------------------------------------*/
+@media screen and (min-width: 0px) and (max-width : 767px){
+
+	.contenedor-encuesta .contenido {
+		width: 90%;
+		margin: 0 5%;
+	}
+}
+
+/**  MOBILE DISPOSITIVO **/
+@media device and (min-width: 0px) and (max-width : 767px){
+	.contenedor-encuesta .contenido {
+		width: 90%;
+		margin: 0 5%;
+	}
+}
+
+/*tablet----------------------------------------*/
+@media screen and (min-width: 768px) and (max-width : 1280px){
+	.contenedor-encuesta .contenido {
+		width: 80%;
+		margin: 0 10%;
+	}
+}
+
+/**  TABLETS LANDSCAPE **/
+@media screen and (min-width: 771px) and (max-width : 900px){
+
+}
+
+/*notbook------------------------------------*/
+@media screen and (min-width: 1280px) and (max-width : 1800px){
+	
+}
+
+/*desktop------------------------------*/
+@media screen and (min-width: 1801px) and (max-width : 2200px){
+
+}
+
+/*desktop large-----------------------------------------------*/
+@media screen and (min-width: 2220px) and (max-width : 4000px){
 
 }

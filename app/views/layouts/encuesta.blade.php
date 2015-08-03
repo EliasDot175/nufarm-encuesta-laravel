@@ -28,6 +28,12 @@
                                 @show
 
                                 @yield('content')
+
+                                <!-- head -->
+                                <div class="footer">
+                                                {{ HTML::image('assets/imagenes/Nufarm-max-logo-verde.png', "Imagen no encontrada", array('id' => 'Nufarm', 'title' => 'Nufarm')) }}
+                                </div>
+                                <!-- //head -->
                                         
                     </div>
                     <!-- contenedor -->

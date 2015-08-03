@@ -1,3 +1,35 @@
+@font-face{
+    font-family: "BrooklynSamuelsFive-Bold";
+    src: url('../fuentes/Samuelstype - BrooklynSamuelsFive-Bold.otf');
+}
+
+body{
+    font-family: 'BrooklynSamuelsFive-Bold';
+}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, 
+.col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, 
+.col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, 
+.col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, 
+.col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11,
+.col-xs-12, .col-sm-12, .col-md-12, .col-lg-12{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+ul, li{
+    text-decoration: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+$violeta: rgba(142,50,137,.9);
+
+:focus {
+    outline: 0;
+}
+
 a:hover, a:focus {
     color: #0e7e02 ;
     text-decoration: none;
@@ -14,6 +46,121 @@ a{
 .titulo-general {
 	margin-top: 35px;
 }
+
+.metricas{
+
+        h5{
+            font-size: 14px;
+            margin-top: 20px;
+            float: left;
+            text-decoration: underline;
+            width: 100%;
+        }
+
+        h6{
+            font-size: 12px;
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        p{
+            font-size: 12px;
+        }
+        
+        .num-violeta{
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            border: 1px solid $violeta;
+            float: left;
+            margin-right: 15px;
+            float: left;
+
+                p{
+                    color: $violeta;
+                    font-size: 30px;
+                    text-align: center;
+                    margin-top: 3px;
+                    margin-left: -1px;
+                }
+        }
+
+        .block-pregunta{
+               margin-top: 40px;
+
+            .sub-preguntas{
+                width: 100%;
+                float: leftt;
+                margin-bottom: 1px;
+                display: table;
+                box-sizing: border-box;
+                
+
+                .block{
+                    display: table-cell;
+                    vertical-align: middle;
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    margin-top: 0;
+                }
+
+                .contenido {
+                    height: auto;
+                }
+            }
+
+            .preguntas{
+                width: 100%;
+                float: leftt;
+                height: 60px;
+                margin-bottom: 1px;
+                display: table;
+                box-sizing: border-box;
+                
+
+                .block{
+                    display: table-cell;
+                    vertical-align: middle;
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    margin-top: 0;
+                }
+
+                .contenido {
+                    height: 60px;
+                }
+            }
+
+            .campo{
+                margin-bottom: 1px;
+                display: inline-block;
+                text-align: center;
+                padding: 20px 0;
+                box-sizing: border-box;
+
+                .block{
+                    width: auto;
+                    display: block;
+                    margin: 0 auto;
+                    display: inline-block;
+                }
+            }
+        }
+
+         .text-pregunta {
+            float: left;
+            width: 60%;
+        }
+
+        .panel-success {
+            margin-bottom: -20px;
+
+        }
+
+}
+
 
 .panel-success {
     border-color: #d6e9c6;

@@ -90,13 +90,18 @@ class EncuestasController extends BaseController {
             $usuarioEncuesta =  $usuarioEnc->id;
 
             //Inserta respuestas
+
             for ($i=1; $i <= $cantidad; $i++) { 
+               
                     $valor = Input::get('pregunta'.$i);
-                    $x = new Respuesta();
-                    $x->idUsuarioEncuesta = $usuarioEncuesta;
-                    $x->idEncuestaPregunta = $i;
-                    $x->valor = $valor ;
-                    $x->save();
+                    if($valor  != ''){ 
+                        $x = new Respuesta();
+                        $x->idUsuarioEncuesta = $usuarioEncuesta;
+                        $x->idEncuestaPregunta = $i;
+                        $x->valor = $valor ;
+                        $x->save();
+                    }
+                   
              }
         
              return View::make('encuesta.completado', array('encuesta' => $datosEncuesta,'email' => $email, 'nombre' => $nombre, 'empresa' => $empresa,));
