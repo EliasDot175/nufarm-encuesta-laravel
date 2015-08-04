@@ -119,6 +119,11 @@ body {
   padding-top: 0px;
   padding-bottom: 0px; }
 
+.titulo-h5 {
+  color: #fff;
+  font-size: 21px;
+  margin-bottom: 20px; }
+
 .panel-acordeon {
   color: #333;
   background-color: rgba(0, 0, 0, 0.3);
@@ -160,6 +165,8 @@ body {
   			color: #A2B876;
   		}
   	}*/ }
+  .contenedor-encuesta .panel-default {
+    border: none; }
   .contenedor-encuesta .contenido {
     width: 60%;
     margin: 0 20%;
@@ -217,18 +224,18 @@ body {
       margin-top: 3px;
       margin-left: -1px; }
   .contenedor-encuesta .num-violeta {
-    width: 50px;
-    height: 50px;
+    width: 74px;
+    height: 74px;
     border-radius: 100%;
-    border: 1px solid rgba(142, 50, 137, 0.9);
+    border: 2px solid rgba(142, 50, 137, 0.9);
     float: left;
     margin-right: 15px;
     float: left; }
     .contenedor-encuesta .num-violeta p {
       color: rgba(142, 50, 137, 0.9);
-      font-size: 30px;
+      font-size: 38px;
       text-align: center;
-      margin-top: 3px;
+      margin-top: 9px;
       margin-left: -1px; }
   .contenedor-encuesta .letra {
     width: 30px;
@@ -237,7 +244,8 @@ body {
     border: 2px solid rgba(255, 255, 255, 0.5);
     float: left;
     margin-right: 15px;
-    float: left; }
+    float: left;
+    margin-top: 5px; }
     .contenedor-encuesta .letra p {
       color: rgba(255, 255, 255, 0.5);
       font-size: 20px;
@@ -264,7 +272,7 @@ body {
   .contenedor-encuesta .block-pregunta .preguntas {
     width: 100%;
     float: leftt;
-    height: 150px;
+    height: 200px;
     background-color: rgba(0, 0, 0, 0.2);
     margin-bottom: 1px;
     display: table;
@@ -277,13 +285,13 @@ body {
       transform: translateY(-50%);
       margin-top: 0; }
     .contenedor-encuesta .block-pregunta .preguntas .contenido {
-      height: 150px; }
+      height: 200px; }
   .contenedor-encuesta .block-pregunta .campo {
     background-color: rgba(0, 0, 0, 0.2);
     margin-bottom: 1px;
     display: inline-block;
     text-align: center;
-    padding: 20px 0;
+    padding: 40px 0;
     box-sizing: border-box; }
     .contenedor-encuesta .block-pregunta .campo .block {
       width: auto;
@@ -306,6 +314,15 @@ body {
         margin-top: 0; }
       .contenedor-encuesta .block-respuesta .sub-preguntas .contenido {
         height: auto; }
+      .contenedor-encuesta .block-respuesta .sub-preguntas .check-box {
+        width: 330px;
+        display: block;
+        margin: 0 auto;
+        display: inline-block;
+        text-align: center;
+        position: relative;
+        left: 50%;
+        margin-left: -165px; }
     .contenedor-encuesta .block-respuesta .preguntas {
       width: 100%;
       float: leftt;
@@ -472,7 +489,8 @@ body {
     float: left;
     width: 60%;
     color: #fff;
-    font-size: 18px; }
+    font-size: 27px;
+    line-height: 30px; }
   .contenedor-encuesta .barra {
     width: 90px;
     float: left;
@@ -488,7 +506,7 @@ body {
     .contenedor-encuesta .check-radio-icon .item-img {
       display: block;
       margin: 0 auto;
-      width: 60px; }
+      width: 70px; }
     .contenedor-encuesta .check-radio-icon input {
       cursor: pointer; }
     .contenedor-encuesta .check-radio-icon .item {
@@ -512,7 +530,14 @@ body {
 @media screen and (min-width: 0px) and (max-width: 767px) {
   .contenedor-encuesta .contenido {
     width: 90%;
-    margin: 0 5%; } }
+    margin: 0 5%; }
+
+  .contenedor-encuesta .item-preguntas {
+    height: 160px; }
+
+  .contenedor-encuesta .numero {
+    margin-bottom: 10px;
+    margin-right: 10px; } }
 /**  MOBILE DISPOSITIVO **/
 @media device and (min-width: 0px) and (max-width: 767px) {
   .contenedor-encuesta .contenido {

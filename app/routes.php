@@ -19,7 +19,7 @@ Route::get('logout', 'AuthController@logOut');
 /*Rutas privadas solo para usuarios autenticados*/
 Route::group(['before' => 'auth'], function()
 {
-	Route::get('/', array('as' => 'index', 'uses' => 'AdminController@mostrarEncuestas'));
+	Route::get('/', array('as' => 'index', 'uses' => 'AdminController@metricasEncuestas'));
 	Route::get('admin', array('as' => 'admin', 'uses' => 'AdminController@mostrarEncuestas'));
 	Route::get('lista-encuestas', array('as' => 'lista-encuesta', 'uses' => 'AdminController@mostrarEncuestas'));
 	Route::get('encuesta-detalle/{id}', array('as' => 'detalle-encuesta', 'uses'=>'AdminController@verEncuestas'));

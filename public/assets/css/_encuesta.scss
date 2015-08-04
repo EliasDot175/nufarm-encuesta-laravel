@@ -15,6 +15,12 @@ body{
 	padding-bottom: 0px;
 }
 
+.titulo-h5{
+	color: #fff;
+	font-size: 21px;
+	margin-bottom: 20px;
+}
+
 //acordeon
 .panel-acordeon {
 	color: #333;
@@ -54,6 +60,10 @@ body{
 	font-family: 'BrooklynSamuelsFive-Bold';
 	margin-bottom: 150px;
 	float: left;
+
+	.panel-default {
+		border: none; 
+	}
 
 	.contenido{
 		width:60%;
@@ -148,19 +158,19 @@ body{
 	}*/
 
 	.num-violeta{
-		width: 50px;
-		height: 50px;
+		width: 74px;
+		height: 74px;
 		border-radius: 100%;
-		border: 1px solid $violeta;
+		border: 2px solid $violeta;
 		float: left;
 		margin-right: 15px;
 		float: left;
 
 		p{
 			color: $violeta;
-			font-size: 30px;
+			font-size: 38px;
 			text-align: center;
-			margin-top: 3px;
+			margin-top: 9px;
 			margin-left: -1px;
 		}
 	}
@@ -173,6 +183,7 @@ body{
 		float: left;
 		margin-right: 15px;
 		float: left;
+		margin-top: 5px;
 
 		p{
 			color: rgba(255,255,255,.5);
@@ -212,12 +223,14 @@ body{
 			.contenido {
 				height: auto;
 			}
+
+			
 		}
 
 		.preguntas{
 			width: 100%;
 			float: leftt;
-			height: 150px;
+			height: 200px;
 			background-color: rgba(0,0,0,.2);
 			margin-bottom: 1px;
 			display: table;
@@ -234,7 +247,7 @@ body{
 			}
 
 			.contenido {
-				height: 150px;
+				height: 200px;
 			}
 		}
 
@@ -243,7 +256,7 @@ body{
 			margin-bottom: 1px;
 			display: inline-block;
 			text-align: center;
-			padding: 20px 0;
+			padding: 40px 0;
 			box-sizing: border-box;
 
 			.block{
@@ -277,6 +290,17 @@ body{
 
 			.contenido {
 				height: auto;
+			}
+
+			.check-box {
+				width: 330px;
+				display: block;
+				margin: 0 auto;
+				display: inline-block;
+				text-align: center;
+				position: relative;
+				left: 50%;
+				margin-left: -165px;
 			}
 		}
 
@@ -511,7 +535,8 @@ body{
 		float: left;
 		width: 60%;
 		color: #fff;
-		font-size: 18px;
+		font-size: 27px;
+		line-height: 30px;
 	}
 
 	.barra{
@@ -534,7 +559,7 @@ body{
 		.item-img{
 			display: block;
 			margin: 0 auto;
-			width: 60px;
+			width: 70px;
 		}
 
 		input{
@@ -587,6 +612,15 @@ body{
 	.contenedor-encuesta .contenido {
 		width: 90%;
 		margin: 0 5%;
+	}
+
+	.contenedor-encuesta .item-preguntas {
+		height: 160px;
+	}
+
+	.contenedor-encuesta .numero {
+		margin-bottom: 10px;
+		margin-right: 10px;
 	}
 }
 

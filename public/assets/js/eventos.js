@@ -2,6 +2,8 @@ var pag = 8;
 
 $(document).ready(function(){
 
+	$('#accordion').collapse('show').height('auto');
+
    	$(document).on("click", ".lnk-pag", function(){
 		var valor = $(this).attr('to');
 		paginas(valor);
