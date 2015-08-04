@@ -360,6 +360,7 @@ body {
     .contenedor-encuesta .comentario textarea {
       padding-top: 60px;
       padding-left: 50px;
+      padding-right: 40px;
       background-color: rgba(255, 255, 255, 0.2);
       width: 400px;
       border: none;
@@ -406,6 +407,7 @@ body {
     .contenedor-encuesta .comentario-b textarea {
       padding-top: 60px;
       padding-left: 50px;
+      padding-right: 40px;
       background-color: rgba(255, 255, 255, 0.2);
       width: 400px;
       border: none;
@@ -420,6 +422,50 @@ body {
       margin-bottom: 20px;
       background-position-y: 80px; }
     .contenedor-encuesta .comentario-b .text-pregunta {
+      width: 100%;
+      font-size: 14px !important; }
+  .contenedor-encuesta .comentario-c {
+    float: left;
+    position: relative; }
+    .contenedor-encuesta .comentario-c label {
+      position: absolute;
+      top: 50px;
+      left: 20px; }
+      .contenedor-encuesta .comentario-c label img {
+        float: left; }
+      .contenedor-encuesta .comentario-c label p {
+        float: left;
+        margin-top: 3px;
+        margin-left: 10px;
+        width: 80%; }
+    .contenedor-encuesta .comentario-c .img {
+      height: 16px;
+      width: 100%;
+      border: none;
+      background-image: url("../imagenes/comentario2.png");
+      background-repeat: no-repeat;
+      float: left;
+      background-position-x: 50px;
+      opacity: .8;
+      margin-top: 10px; }
+    .contenedor-encuesta .comentario-c textarea {
+      padding-top: 5px;
+      padding-left: 35px;
+      padding-right: 20px;
+      background-color: rgba(255, 255, 255, 0.2);
+      width: 400px;
+      border: none;
+      min-height: 200px;
+      height: auto;
+      float: left;
+      border-radius: none;
+      background-image: url("../imagenes/linea-comentario-c.png");
+      background-repeat: no-repeat;
+      background-size: 100%;
+      line-height: 37px;
+      margin-bottom: 20px;
+      background-position-y: 25px; }
+    .contenedor-encuesta .comentario-c .text-pregunta {
       width: 100%;
       font-size: 14px !important; }
   .contenedor-encuesta .text-pregunta {

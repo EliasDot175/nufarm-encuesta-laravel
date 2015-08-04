@@ -36,6 +36,7 @@ $(document).ready(function(){
    	$('#pagina-1').fadeIn();
    	$('#anterior').css('display', 'none');
    	$('#finalizar').css('display', 'none');
+   	$('#siguiente').css('display', 'block');
 
 
 

@@ -5,11 +5,9 @@
     	           <title>Nufarm - Encuesta</title>
                         {{HTML::style('assets/css/bootstrap.min.css')}}
                         {{HTML::style('assets/css/estilos.css')}}
-                         {{ HTML::style('assets/bootstrap-3.3.4\css/bootstrap.min.css') }}
-                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-                        <script src="assets/bootstrap-3.3.4/js/bootstrap.min.js"></script>
-                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-                        <script src="assets/js/eventos.js"></script>
+                        {{ HTML::style('assets/bootstrap-3.3.4/css/bootstrap.min.css') }}
+
+                      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
              </head>
 
              <body>
@@ -37,6 +35,9 @@
                                         
                     </div>
                     <!-- contenedor -->
+                    
+                    {{ HTML::script('assets/bootstrap-3.3.4/js/bootstrap.min.js') }}
+                    {{ HTML::script('assets/js/eventos.js') }}
 
              </body>
 </html>

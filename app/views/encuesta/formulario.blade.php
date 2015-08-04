@@ -66,7 +66,7 @@
 					<?php  $val = $val + 1; ?>
 				@elseif($c == 3)
 					<div class="item-pagina" id="pagina-<?php echo $val; ?>" class="col-xs-12 col-sm-12 col-md-12 ol-lg-12">
-						<div class="panel-group" id="accordion">
+						<div id="accordion">
 						<?php  $val = $val + 1; ?>
 				@endif
 				<!-- //contador bloques preguntas -->
@@ -162,7 +162,7 @@
 							                                       	<p class="text-uppercase"><?php echo $letra; ?> </p>     
 							                               	</div>
 							                               	<!-- pregunta -->
-										<label class="text-pregunta text-uppercase"  for="role">{{ $pregunta->valor}}</label>
+										<label class="text-pregunta"  for="role">{{ $pregunta->valor}}</label>
 										<!-- //pregunta -->
 
 										@if($letra == 'i')
@@ -246,7 +246,7 @@
 				@elseif($tipo == 'comentario-acordeon')
 					<script type="text/javascript" >
 						$( document ).ready(function() {
-	   						$( "#comentario-{{ $i }}" ).append( '<label class="text-pregunta text-uppercase"  for="role">{{ HTML::image("assets/imagenes/comentario.png", "Imagen no encontrada") }}<p>{{ $pregunta->valor}}</p></label><div class="img"></div><textarea name={{ "pregunta".$pregunta->id }} value="null"  ></textarea>');
+	   						$( "#comentario-{{ $i }}" ).append( '<label class="text-pregunta"  for="role">{{ HTML::image("assets/imagenes/comentario.png", "Imagen no encontrada") }}<p>{{ $pregunta->valor}}</p></label><div class="img"></div><textarea name={{ "pregunta".$pregunta->id }} value="null"  ></textarea>');
 						});
 					</script>
 
@@ -377,10 +377,7 @@
 					<div class="block-pregunta col-xs-12 col-sm-12 col-md-12 ol-lg-12">
 					             <div class="sub-preguntas col-xs-12 col-sm-12 col-md-12 ol-lg-12">
 							<div class="contenido">
-					                               	<div class="comentario" id="comentario-G">
-									<label class="text-pregunta text-uppercase" for="role"><img src="http://localhost/nufarm-encuesta/nufarm-encuesta-laravel/public/assets/imagenes/comentario.png" alt="Imagen no encontrada">
-										<p>{{ $pregunta->valor}}</p>
-									</label>
+					                               	<div class="comentario-c" id="comentario-G">
 									<div class="img"></div>
 									<textarea required name={{ 'pregunta'.$pregunta->id }}></textarea>
 								</div>
@@ -398,7 +395,8 @@
 					             <div class="sub-preguntas col-xs-12 col-sm-12 col-md-12 ol-lg-12">
 							<div class="contenido">
 					                               	<div class="comentario-b" id="comentario-G">
-									<label class="text-pregunta text-uppercase" for="role"><img src="http://localhost/nufarm-encuesta/nufarm-encuesta-laravel/public/assets/imagenes/comentario.png" alt="Imagen no encontrada">
+									<label class="text-pregunta" for="role">
+										{{ HTML::image('assets/imagenes/comentario.png', "Imagen no encontrada", array( 'class' => 'item-img', 'title' => 'no')) }}
 										<p>{{ $pregunta->valor}}</p>
 									</label>
 									<!-- <div class="img"></div>-->
@@ -432,15 +430,18 @@
 			<!--validacion token-->
 
 			<div class="footer-form contenido">
-				<p id="anterior" class="boton boton-left" to="0">anterior</p>
-				<p id="siguiente" class="boton boton-rigth" to="2">siguiente</p>
 				<button id="finalizar" class="boton boton-rigth" type="submit">Finalizar</button>
 			</div>
 			
 		</form>
 
+
 	</div>
 	<!-- Formulario -->
 
+	<div class="footer-form contenido">
+		<p id="anterior" class="boton boton-left" to="0">anterior</p>
+		<p id="siguiente" class="boton boton-rigth" to="2">siguiente</p>
+	</div>
 
 @stop
