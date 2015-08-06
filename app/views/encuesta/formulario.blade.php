@@ -44,7 +44,6 @@
 	<!-- Formulario -->
 	<div class="form-group form-encuesta">
 
-
 	       	<form id="encuesta" role="form" method="POST"  accept-charset="UTF-8" action= {{ URL::route('encuesta',array('encuesta'=>1, 'email'=>$email, 'empresa'=>$empresa, 'nombre'=>$nombre)) }}>
 			
 			<?php 
@@ -251,6 +250,11 @@
 							<div class="contenido">
 								<div  id="sub-{{ 'pregunta'.$pregunta->id }}" class="comentario oculto comentario-<?php echo $letra;?>">
 									<!-- COMENTARIOS ACORDEON - Jquery  -->
+									<label class="text-pregunta"  for="role">{{ HTML::image("assets/imagenes/comentario.png", "Imagen no encontrada") }}
+										<p class="text-<?php echo $letra; ?>"></p>
+									</label>
+									<div class="img"></div>
+									<textarea class="text-area-<?php echo $letra; ?>" data-autoresize rows="2"></textarea>
 					        			</div>
 							</div>
 
@@ -269,7 +273,8 @@
 				@elseif($tipo == 'comentario-acordeon')
 					<script type="text/javascript" >
 						$( document ).ready(function() {
-	   						$( ".comentario-{{ $i }}" ).append( '<label class="text-pregunta"  for="role">{{ HTML::image("assets/imagenes/comentario.png", "Imagen no encontrada") }}<p>{{ $pregunta->valor}}</p></label><div class="img"></div><textarea name={{ "pregunta".$pregunta->id }} value="null"  ></textarea>');
+							$( ".text-{{ $i }}" ).append( '{{ $pregunta->valor}}');
+	   						$( ".text-area--{{ $i }}" ).attr( 'name', '{{ "pregunta".$pregunta->id }}');
 						});
 					</script>
 
@@ -420,8 +425,8 @@
 				             <div class="sub-preguntas col-xs-12 col-sm-12 col-md-12 ol-lg-12">
 						<div class="contenido">
 				                               	<div class="comentario-c" id="comentario-G">
-								<div class="fondo"></div>
-								<textarea required name={{ 'pregunta'.$pregunta->id }}></textarea>
+								<div data-autoresize class="fondo"></div>
+								<textarea data-autoresize required name={{ 'pregunta'.$pregunta->id }}></textarea>
 							</div>
 						</div>
 					</div>
@@ -442,7 +447,7 @@
 										<p>{{ $pregunta->valor}}</p>
 									</label>
 									<div class="img"></div>
-									<textarea value="null" name={{ 'pregunta'.$pregunta->id }}></textarea>
+									<textarea data-autoresize value="null" name={{ 'pregunta'.$pregunta->id }}></textarea>
 								</div>
 							</div>
 						</div>

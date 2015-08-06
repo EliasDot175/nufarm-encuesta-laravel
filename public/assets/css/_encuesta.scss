@@ -18,6 +18,11 @@ body{
 	display: none;
 }
 
+textarea {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    resize: none;
+}
 //acordeon
 
 #accordion {
@@ -442,7 +447,7 @@ body{
 			height: auto;
 			float: left;
 			border-radius: none;
-			background-image:url('../imagenes/linea-comentario2.png');
+			//background-image:url('../imagenes/linea-comentario2.png');
 			background-repeat: no-repeat;
 			background-size: 100%;
 			line-height: 37px;
@@ -509,7 +514,7 @@ body{
 			height: auto;
 			float: left;
 			border-radius: none;
-			background-image:url('../imagenes/linea-comentario2.png');
+			//background-image:url('../imagenes/linea-comentario2.png');
 			background-repeat: no-repeat;
 			background-size: 100%;
 			line-height: 37px;
@@ -531,7 +536,7 @@ body{
 		width: 70%;
 
 		.fondo{
-			background-image: url("../imagenes/linea-comentario-c.png");
+			//background-image: url("../imagenes/linea-comentario-c.png");
 			background-repeat: repeat;
 			background-position-y: 25px;
 			position: absolute;
