@@ -128,11 +128,14 @@
 									<h5 class="titulo-h5">Me gusta poder elegir</h5>
 								@endif
 
-								
-
-								<div class="check-radio-icon">
+								<div class="check-radio-icon " >
 									{{ HTML::image('assets/imagenes/cara-3.png', "Imagen no encontrada", array( 'class' => 'item-img', 'title' => 'si')) }}
-									<input class="item" type="radio" required name={{ 'pregunta'.$pregunta->id }} value="si">
+									@if($val == 6 || $val == 7 || $val == 8)<!-- animacion sub-preguntas-->
+										<input class="item sub-preg" sub="{{ $pregunta->id }}" status="true" type="radio" required name='{{ 'pregunta'.$pregunta->id }}' value="si">
+									@else
+										<input class="item" type="radio" required name='{{ 'pregunta'.$pregunta->id }}' value="si">
+									@endif
+
 									<label class="item" for="role">
 										<p class="text-uppercase">Si</p>
 									</label>
@@ -144,7 +147,11 @@
 
 								<div class="check-radio-icon">
 									{{ HTML::image('assets/imagenes/cara-5.png', "Imagen no encontrada", array( 'class' => 'item-img', 'title' => 'no')) }}
-									<input class="item"  type="radio" required name={{ 'pregunta'.$pregunta->id }} value="no">
+									@if($val == 6 || $val == 7 || $val == 8)<!-- animacion sub-preguntas-->
+										<input class="item sub-preg" sub="{{ $pregunta->id }}" status="false"  type="radio" required name='{{ 'pregunta'.$pregunta->id }}' value="no">
+									@else
+										<input class="item"  type="radio" required name='{{ 'pregunta'.$pregunta->id }}' value="no">
+									@endif
 									<label  class="item" for="role">
 										<p class="text-uppercase">No </p>
 									</label>
@@ -166,21 +173,17 @@
 					<!-- head acordeon-->
 				 	<a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $letra; ?>">
 						<div class="panel-acordeon">
-							<a id="acordeon-coll" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $letra; ?>">
+							<a id="acordeon-coll" data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $letra; ?>" class="">
 								<div class="contenido">
 								
 									@if($identificacion == 'letra')
 										<div id="letra-<?php echo $letra; ?>" class="letra">
 							                                       	<p class="text-uppercase"><?php echo $letra; ?> </p>     
 							                               	</div>
-							                               	<!-- pregunta -->
 										<label class="text-pregunta"  for="role">{{ $pregunta->valor}}</label>
-										<!-- //pregunta -->
-
+										<div  class="flecha <?php if($flag == 0){ echo 'flecha-in';} ?>"></div>
 										@if($letra == 'i')
-											<?php
-												$letra = "A";
-											?>
+											<?php $letra = "A"; ?>
 								                          @endif
 								             @endif
 						            		</div>
@@ -199,42 +202,42 @@
 								<div class="block">
 									<div class="check-radio-icon">
 										{{ HTML::image('assets/imagenes/cara-1.png', "Imagen no encontrada", array( 'class' => 'item-img', 'title' => 'excelente')) }}
-										<input class="item" type="radio" required name={{ 'pregunta'.$pregunta->id }} value="exelente">
+										<input class="item sub-preg" sub="{{ $pregunta->id }}" status="true" increment="false" type="radio" required name={{ 'pregunta'.$pregunta->id }} value="exelente">
 										<label class="item"for="role">
 											<p class="text-uppercase">Exelente</p>
 										</label>
 									</div>
 									<div class="check-radio-icon">
 										{{ HTML::image('assets/imagenes/cara-2.png', "Imagen no encontrada", array( 'class' => 'item-img', 'title' => 'Muy Buena')) }}
-										<input class="item"type="radio" required name={{ 'pregunta'.$pregunta->id }} value="muy buena">
+										<input class="item sub-preg" sub="{{ $pregunta->id }}" status="true" increment="false" type="radio" required name={{ 'pregunta'.$pregunta->id }} value="muy buena">
 										<label class="item" for="role">
 											<p class="text-uppercase">Muy Buena</p>
 										</label>
 									</div>
 									<div class="check-radio-icon">
 										{{ HTML::image('assets/imagenes/cara-3.png', "Imagen no encontrada", array( 'class' => 'item-img', 'title' => 'Buena')) }}
-										<input class="item" type="radio" required name={{ 'pregunta'.$pregunta->id }} value="buena">
+										<input class="item sub-preg" sub="{{ $pregunta->id }}" status="true" increment="false" type="radio" required name={{ 'pregunta'.$pregunta->id }} value="buena">
 										<label class="item" for="role">
 											<p class="text-uppercase">Buena</p>
 										</label>
 									</div>
 									<div class="check-radio-icon">
 										{{ HTML::image('assets/imagenes/cara-4.png', "Imagen no encontrada", array( 'class' => 'item-img', 'title' => 'Regular')) }}
-										<input class="item" type="radio" required name={{ 'pregunta'.$pregunta->id }} value="regular">
+										<input class="item sub-preg" sub="{{ $pregunta->id }}" status="true" increment="false" type="radio" required name={{ 'pregunta'.$pregunta->id }} value="regular">
 										<label class="item" for="role">	
 											<p class="text-uppercase">Regular</p>
 										</label>
 									</div>
 									<div class="check-radio-icon">
 										{{ HTML::image('assets/imagenes/cara-5.png', "Imagen no encontrada", array( 'class' => 'item-img', 'title' => 'mala')) }}
-										<input class="item" type="radio" required name={{ 'pregunta'.$pregunta->id }} value="mala">
+										<input class="item sub-preg" sub="{{ $pregunta->id }}" status="true" increment="false" type="radio" required name={{ 'pregunta'.$pregunta->id }} value="mala">
 										<label class="item" for="role">
 											<p class="text-uppercase">Mala</p>
 										</label>
 									</div>
 									<div class="check-radio-icon">
 										{{ HTML::image('assets/imagenes/cara-6.png', "Imagen no encontrada", array( 'class' => 'item-img', 'title' => 'ns/nc')) }}
-										<input class="item" type="radio" required name={{ 'pregunta'.$pregunta->id }} value="ns/nc">
+										<input class="item sub-preg" sub="{{ $pregunta->id }}" status="true" increment="false" type="radio" required name={{ 'pregunta'.$pregunta->id }} value="ns/nc">
 										<label class="item" for="role">
 											<p class="text-uppercase">ns/nc</p>
 										</label>
@@ -242,10 +245,13 @@
 								</div>
 								<!-- //items -->
 
-								<div class="comentario" id='comentario-<?php echo $letra;?>'>
+							</div>
+
+
+							<div class="contenido">
+								<div  id="sub-{{ 'pregunta'.$pregunta->id }}" class="comentario oculto comentario-<?php echo $letra;?>">
 									<!-- COMENTARIOS ACORDEON - Jquery  -->
 					        			</div>
-
 							</div>
 
 						</div>
@@ -259,14 +265,11 @@
 				<?php $letra++; ?>
 				
 
-
-
-
 				<!-- COMENTARIOS ACORDEON - Jquery -->
 				@elseif($tipo == 'comentario-acordeon')
 					<script type="text/javascript" >
 						$( document ).ready(function() {
-	   						$( "#comentario-{{ $i }}" ).append( '<label class="text-pregunta"  for="role">{{ HTML::image("assets/imagenes/comentario.png", "Imagen no encontrada") }}<p>{{ $pregunta->valor}}</p></label><div class="img"></div><textarea name={{ "pregunta".$pregunta->id }} value="null"  ></textarea>');
+	   						$( ".comentario-{{ $i }}" ).append( '<label class="text-pregunta"  for="role">{{ HTML::image("assets/imagenes/comentario.png", "Imagen no encontrada") }}<p>{{ $pregunta->valor}}</p></label><div class="img"></div><textarea name={{ "pregunta".$pregunta->id }} value="null"  ></textarea>');
 						});
 					</script>
 
@@ -414,16 +417,15 @@
 				<!-- TEXTO -->		
 				@elseif($tipo == 'text')
 				<div class="block-respuesta col-xs-12 col-sm-12 col-md-12 ol-lg-12">
-					<div class="block-pregunta col-xs-12 col-sm-12 col-md-12 ol-lg-12">
-					             <div class="sub-preguntas col-xs-12 col-sm-12 col-md-12 ol-lg-12">
-							<div class="contenido">
-					                               	<div class="comentario-c" id="comentario-G">
-									<div class="img"></div>
-									<textarea required name={{ 'pregunta'.$pregunta->id }}></textarea>
-								</div>
+				             <div class="sub-preguntas col-xs-12 col-sm-12 col-md-12 ol-lg-12">
+						<div class="contenido">
+				                               	<div class="comentario-c" id="comentario-G">
+								<div class="fondo"></div>
+								<textarea required name={{ 'pregunta'.$pregunta->id }}></textarea>
 							</div>
 						</div>
 					</div>
+				</div>
 
 
 
@@ -432,14 +434,14 @@
 				@elseif($tipo == 'sub-text')
 					
 					<div class="block-respuesta col-xs-12 col-sm-12 col-md-12 ol-lg-12">
-					             <div class="sub-preguntas col-xs-12 col-sm-12 col-md-12 ol-lg-12">
+					             <div id="sub-{{ 'pregunta'.$pregunta->id }}"  class="sub-preguntas oculto col-xs-12 col-sm-12 col-md-12 ol-lg-12">
 							<div class="contenido">
 					                               	<div class="comentario-b" id="comentario-G">
 									<label class="text-pregunta" for="role">
 										{{ HTML::image('assets/imagenes/comentario.png', "Imagen no encontrada", array( 'class' => 'item-img', 'title' => 'no')) }}
 										<p>{{ $pregunta->valor}}</p>
 									</label>
-									<!-- <div class="img"></div>-->
+									<div class="img"></div>
 									<textarea value="null" name={{ 'pregunta'.$pregunta->id }}></textarea>
 								</div>
 							</div>
@@ -451,7 +453,7 @@
 				@elseif($tipo == 'sub-mucho-poco-nada')
 					
 					<div class="block-respuesta col-xs-12 col-sm-12 col-md-12 ol-lg-12">
-					             <div class="sub-preguntas col-xs-12 col-sm-12 col-md-12 ol-lg-12">
+					             <div  id="sub-{{ 'pregunta'.$pregunta->id }}" class="sub-preguntas oculto col-xs-12 col-sm-12 col-md-12 ol-lg-12">
 							<div class="contenido">
 					                               	<!-- //items -->
 								<div class="check-box">
@@ -460,21 +462,21 @@
 
 									<div class="check-radio-icon">
 										{{ HTML::image('assets/imagenes/cara-2.png', "Imagen no encontrada", array( 'class' => 'item-img', 'title' => 'si')) }}
-										<input class="item" type="radio" required name={{ 'pregunta'.$pregunta->id }} value="mucho">
+										<input class="item" type="radio" name={{ 'pregunta'.$pregunta->id }} value="mucho">
 										<label class="item" for="role">
 											<p class="text-uppercase">Mucho</p>
 										</label>
 									</div>
 									<div class="check-radio-icon">
 										{{ HTML::image('assets/imagenes/cara-4.png', "Imagen no encontrada", array( 'class' => 'item-img', 'title' => 'no')) }}
-										<input class="item"  type="radio" required name={{ 'pregunta'.$pregunta->id }} value="Poco">
+										<input class="item"  type="radio" name={{ 'pregunta'.$pregunta->id }} value="Poco">
 										<label class="item" for="role">
 											<p class="text-uppercase">Poco</p>
 										</label>
 									</div>
 									<div class="check-radio-icon">
 										{{ HTML::image('assets/imagenes/cara-5.png', "Imagen no encontrada", array( 'class' => 'item-img', 'title' => 'no')) }}
-										<input class="item"  type="radio" required name={{ 'pregunta'.$pregunta->id }} value="Nada">
+										<input class="item"  type="radio" name={{ 'pregunta'.$pregunta->id }} value="Nada">
 										<label class="item" for="role">
 											<p class="text-uppercase">Nada</p>
 										</label>
@@ -520,8 +522,8 @@
 	<!-- Formulario -->
 
 	<div class="footer-form contenido">
-		<p id="anterior" class="boton boton-left" to="0">anterior</p>
-		<p id="siguiente" class="boton boton-rigth" to="2">siguiente</p>
+		<p id="anterior" class="boton boton-left text-uppercase" to="0">volver</p>
+		<p id="siguiente" class="boton boton-rigth text-uppercase" to="2">continuar</p>
 	</div>
 
 @stop

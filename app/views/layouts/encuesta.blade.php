@@ -8,8 +8,9 @@
                         {{ HTML::style('assets/bootstrap-3.3.4/css/bootstrap.min.css') }}
 
                       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
                       
+
+
              </head>
 
              <body>
@@ -30,14 +31,14 @@
                                 @yield('content')
 
                                 
-                                        
+
+                        <div class="footer">
+                                        {{ HTML::image('assets/imagenes/Nufarm-max-logo-verde.png', "Imagen no encontrada", array('id' => 'Nufarm', 'title' => 'Nufarm')) }}
+                        </div>
+     
                     </div>
                     <!-- contenedor -->
-                    <!-- head -->
-                    <div class="footer">
-                                    {{ HTML::image('assets/imagenes/Nufarm-max-logo-verde.png', "Imagen no encontrada", array('id' => 'Nufarm', 'title' => 'Nufarm')) }}
-                    </div>
-                    <!-- //head -->
+                    
                     {{ HTML::script('assets/bootstrap-3.3.4/js/bootstrap.min.js') }}
                     {{ HTML::script('assets/js/eventos.js') }}
 

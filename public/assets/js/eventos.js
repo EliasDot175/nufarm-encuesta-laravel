@@ -2,8 +2,13 @@ var pag = 8;
 
 $(document).ready(function(){
 
-	$('#accordion').collapse('show').height('auto');
+	// default
+   	$('#pagina-1').fadeIn();
+   	$('#anterior').css('display', 'none');
+   	$('#finalizar').css('display', 'none');
+   	$('#siguiente').css('display', 'block');
 
+	// click en numeros
    	$(document).on("click", ".lnk-pag", function(){
 		var valor = $(this).attr('to');
 		paginas(valor);
@@ -11,11 +16,13 @@ $(document).ready(function(){
 		$(this).addClass('activo');
    	});
 
+   	// siguiente
    	$(document).on("click", "#siguiente", function(){
    		var valor = $(this).attr('to');
    		siguiente(valor);
    	});
 
+   	// anterior
    	$(document).on("click", "#anterior", function(){
    		var valor = $(this).attr('to');
    		anterior(valor);
@@ -25,20 +32,25 @@ $(document).ready(function(){
 		}
    	});
 
-   	/*$(document).on("click", ".acordeon-coll", function(){
-   		$('.acordeon-coll').attr('aria-expanded', 'false');
-		$('.acordeon-coll').addClass('collapsed');
-   		
-		//$(this).attr('aria-expanded', 'true');
-		//$(this).removeClass('collapsed');
-		console.log('test');
-   
-   	});*/
+   	// ver / ocultar  sub-pregunta
+   	$(document).on("click", ".sub-preg", function(){
+   		var valor = $(this).attr('sub');
+   		var status = $(this).attr('status');
+		var increment = $(this).attr('increment');
 
-   	$('#pagina-1').fadeIn();
-   	$('#anterior').css('display', 'none');
-   	$('#finalizar').css('display', 'none');
-   	$('#siguiente').css('display', 'block');
+   		var val = parseInt(valor) + 1;
+
+		if(increment == 'false'){
+   			val = valor;
+   		}
+
+   		if(status == 'false'){
+   			$('#sub-pregunta'+val).fadeOut();
+   		}else if(status == 'true'){
+   			$('#sub-pregunta'+val).fadeIn();
+   			console.log('#sub-pregunta'+val);
+   		}
+   	});
 
 
 

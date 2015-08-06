@@ -1,10 +1,3 @@
-@font-face{
-	font-family: "BrooklynSamuelsFive-Bold";
-	src: url('../fuentes/Samuelstype - BrooklynSamuelsFive-Bold.otf');
-}
-
-$violeta: rgba(142,50,137,.9);
-
 body{
 	background: #3D5927 url("../imagenes/fondo.jpg"); 
 	background-size: cover;
@@ -21,35 +14,96 @@ body{
 	margin-bottom: 20px;
 }
 
+.oculto{
+	display: none;
+}
+
 //acordeon
-.panel-acordeon {
-	color: #333;
-	background-color: rgba(0,0,0,.3);;
-	padding: 10px 0;
-	min-height: 50px;
-	cursor: pointer;
-	float: left;
-	width: 100%;
 
-	label{
-		margin-top: 5px;
+#accordion {
+
+
+	.panel-acordeon {
+		color: #333;
+		background-color: rgba(0,0,0,.2);;
+		padding: 10px 0;
+		min-height: 50px;
 		cursor: pointer;
+		float: left;
+		width: 100%;
+
+		label{
+			margin-top: 5px;
+			cursor: pointer;
+		}
+
+		.text-pregunta {
+			width: 80% !important;
+			font-size: 14px !important;
+		}
+
+		.contenido {
+			position: relative;
+			.flecha {
+				position: absolute;
+				right: 0;
+				top: 10px;
+				opacity: .5;
+				width: 30px;
+				height: 30px;
+				background-repeat: no-repeat;
+				background-image:url('../imagenes/flecha-top.png') ;
+			}
+
+			.flecha:hover {
+				opacity: .9;
+			}
+		}
 	}
 
-	.text-pregunta {
-		width: 80% !important;
-		font-size: 14px !important;
+	
+	.panel-acordeon:hover {
+		.flecha{
+			opacity: .9;
+		}
 	}
+
+	.collapsed{
+		.flecha{
+			background-image:url('../imagenes/flecha-bottom.png')  !important;
+		}
+	}
+
+	.flecha-in{
+		
+		background-image:url('../imagenes/flecha-top.png')  !important;
+	}
+
+
 }
 
-.contenido-acordeon {
-	background-color: rgba(255,255,255,.06);
-	float: left;
-	width: 100%;   
-}
 
 .item-pagina{
 	display: none;
+}
+
+.footer-form{
+	z-index: 5;
+	margin-top: 10px !important;
+
+	.boton{
+		background-color: transparent;
+		cursor: pointer;
+		color: #fff;
+	}
+
+	.boton-rigth{
+		float: right;
+	}
+
+	.boton-left{
+		float: left;
+	}
 }
 
 
@@ -87,7 +141,7 @@ body{
 
 	.footer{
 		//background: rgba(0,148,72,.8);
-		height: 100px;
+		height: 130px;
 		background-image:url('../imagenes/footer.png') ;
 		background-size: cover;
 		repeat: no-repeat;
@@ -101,10 +155,10 @@ body{
 
 		img{
 			margin-top: 15px;
-			width: 200px;
+			width: 260px;
 			display: block;
 			margin: 0 auto;
-			margin-top: 30px;
+			margin-top: 40px;
 		}
 	}
 
@@ -207,7 +261,6 @@ body{
 			width: 100%;
 			float: leftt;
 			background-color: rgba(0,0,0,.2);
-			display: table;
 			box-sizing: border-box;
 			
 
@@ -269,13 +322,11 @@ body{
 	}
 
 	.block-respuesta{
-		background-color: rgba(0,0,0,.2);
+		background-color: rgba(0,0,0,.26);
 
 		.sub-preguntas{
 			width: 100%;
 			float: leftt;
-			//background-color: rgba(0,0,0,.2);
-			display: table;
 			box-sizing: border-box;
 			
 
@@ -362,6 +413,8 @@ body{
 				margin-top: 3px;
 				margin-left: 10px;
 				width: 80%;
+				font-size: 21px;
+				line-height: 22px;
 			}
 			
 		}
@@ -410,11 +463,12 @@ body{
 		width: 400px;
 		margin-left: -200px;
 		left: 50%;
+		top: -40px;
 
 		label{
-			//margin-bottom: -60px;
+			margin-bottom: -60px;
 			position: absolute;
-			top: 20px;
+			top: 50px;
 			left: 20px;
 
 			img{
@@ -423,9 +477,11 @@ body{
 
 			p{
 				float: left;
-				margin-top: 3px;
+				margin-top: -2px;
 				margin-left: 10px;
 				width: 80%;
+				font-size: 21px;
+				line-height: 22px;
 			}
 			
 		}
@@ -437,7 +493,7 @@ body{
 			background-image:url('../imagenes/comentario2.png');
 			background-repeat: no-repeat;
 			float: left;
-			background-position-x: 50px;
+			background-position-x: 85px;
 			opacity: .8;
 			margin-top: 10px;
 		}
@@ -471,55 +527,37 @@ body{
 	.comentario-c{
 		float: left;
 		position: relative;
+		margin-top: 20px;
+		width: 70%;
 
-		label{
-			//margin-bottom: -60px;
+		.fondo{
+			background-image: url("../imagenes/linea-comentario-c.png");
+			background-repeat: repeat;
+			background-position-y: 25px;
 			position: absolute;
-			top: 50px;
-			left: 20px;
-
-			img{
-				float: left;
-			}
-
-			p{
-				float: left;
-				margin-top: 3px;
-				margin-left: 10px;
-				width: 80%;
-			}
-			
-		}
-
-		.img{
-			height: 16px;
-			width: 100%;
-			border: none;
-			background-image:url('../imagenes/comentario2.png');
-			background-repeat: no-repeat;
-			float: left;
-			background-position-x: 50px;
-			opacity: .8;
-			margin-top: 10px;
+			height: 150px;
+			top: 0;
+			left: 0;
+			width: 90%;
+			left: 5%;
+			top: 14%;
+			z-index: -1;
 		}
 
 		textarea{
-			padding-top: 5px;
+			padding-top: 10px;
 			padding-left: 35px;
 			padding-right: 20px;
 			background-color: rgba(255, 255, 255, 0.2);
-			width: 400px;
+			width: 100%;
 			border: none;
 			min-height: 200px;
 			height: auto;
 			float: left;
 			border-radius: none;
-			background-image: url("../imagenes/linea-comentario-c.png");
-			background-repeat: no-repeat;
-			background-size: 100%;
-			line-height: 37px;
+			line-height: 33px;
 			margin-bottom: 20px;
-			background-position-y: 25px;
+			z-index: 1;
 		}
 
 		.text-pregunta {
@@ -580,22 +618,7 @@ body{
 
 	}
 
-	.footer-form{
-		z-index: 5;
-
-		.boton{
-			background-color: transparent;
-			cursor: pointer;
-		}
-
-		.boton-rigth{
-			float: right;
-		}
-
-		.boton-left{
-			float: left;
-		}
-	}
+	
 
 	
 

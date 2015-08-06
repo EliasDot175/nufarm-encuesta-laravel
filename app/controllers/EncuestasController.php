@@ -2,6 +2,7 @@
 
 class EncuestasController extends BaseController {
 
+
     /* * * 
      * * * CREAR FORMULARIO BLOQUEANDO POR IP SIN TOKEN * * *
      * * */

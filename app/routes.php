@@ -32,5 +32,3 @@ Route::get('{email}/{nombre?}/{empresa?}', array('uses' => 'EncuestasController@
 Route::post('encuesta/usuario-identificado', array('as' => 'usuario-identificado', 'uses' => 'EncuestasController@formEncuesta'));
 Route::post('crear/{encuesta}/{email}/{nombre?}/{empresa?}', array('as' => 'encuesta','uses' => 'EncuestasController@crearEncuesta'));
 
-
-
