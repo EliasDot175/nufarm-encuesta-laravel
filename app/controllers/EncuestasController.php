@@ -4,29 +4,6 @@ class EncuestasController extends BaseController {
 
 
     /* * * 
-     * * * CREAR FORMULARIO BLOQUEANDO POR IP SIN TOKEN * * *
-     * * */
-    public function formularioEncuesta()
-    {
-        //Datos encuesta y lista preguntas
-        $encuesta = 1;
-        $preguntas= DB::table('pregunta')->where('idEncuesta', $encuesta)->get();
-        $datosEncuesta = DB::table('encuesta')->where('id', $encuesta)->first();
-
-        //Busca usuario por ip
-        $ip=Request::getClientIp();
-        $usuarioIP= DB::table('users')->where('ip', $ip)->first();
-        if ($usuarioIP) {
-            $mensaje =  'Usted ya ha completado la encuesta, sólo puede realizar esta acción una vez';
-            return View::make('encuesta.error', array('mensaje' => $mensaje, 'usuario' => $usuarioIP, 'encuesta' => $datosEncuesta));
-
-        }
-
-        return View::make('encuesta.formulario', array('preguntas' => $preguntas, 'encuesta' => $datosEncuesta));
-    }
-
-
-    /* * * 
      * * * CREAR FORMULARIO  TOKEN * * *
      * * */
     public function formularioTokenEncuesta($email, $nombre = 'sin dato', $empresa = 'sin dato')
@@ -41,7 +18,12 @@ class EncuestasController extends BaseController {
         if ($usuariosEmail && $usuariosEmail != 'anónimo' ) {
             $mensaje =  'Usted ya ha completado la encuesta, sólo puede realizar esta acción una vez';
             $codigo = $usuariosEmail->codigo;
-            return View::make('encuesta.error', array('mensaje' => $mensaje, 'usuario' => $usuariosEmail , 'encuesta' => $datosEncuesta, 'codigo' => $codigo));
+            Session::put('mensaje', $mensaje);    
+            Session::put('usuariosEmail', $usuariosEmail);    
+            Session::put('datosEncuesta', $datosEncuesta);    
+            Session::put('codigo', $codigo);    
+            //return View::make('encuesta.error', array('mensaje' => $mensaje, 'usuario' => $usuariosEmail , 'encuesta' => $datosEncuesta, 'codigo' => $codigo));
+            return Redirect::to('/formulario-ok');
          }
 
         Session::put('preguntas', $preguntas);    
@@ -120,7 +102,8 @@ class EncuestasController extends BaseController {
                     }
                    
              }
-        
-             return View::make('encuesta.completado', array('encuesta' => $datosEncuesta,'email' => $email, 'nombre' => $nombre, 'empresa' => $empresa, 'codigo' => $random));
+
+            return Redirect::to('/formulario-ok');
+             //return View::make('encuesta.completado', array('encuesta' => $datosEncuesta,'email' => $email, 'nombre' => $nombre, 'empresa' => $empresa, 'codigo' => $random));
     }
 }

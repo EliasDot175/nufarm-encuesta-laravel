@@ -95,8 +95,8 @@ Route::get('descargar/{codigo}',array('as' => 'descargar',function($codigo)
 
 	$html.= '</body></html>';
 
-    	//return PDF::load($html, 'A4', 'portrait')->download('Nufarm-Encuesta-Codigo');
-    	return PDF::load($html, 'A4', 'portrait')->show();
+    	return PDF::load($html, 'A4', 'portrait')->download('Nufarm-Encuesta-Codigo');
+    	//return PDF::load($html, 'A4', 'portrait')->show();
 }));
 
 
@@ -110,6 +110,16 @@ Route::get('/formulario', function(){
 
 	return View::make('encuesta.formulario', array('preguntas' => $preguntas, 'email' => $email, 'nombre' => $nombre, 'empresa' => $empresa, 'encuesta' => $datosEncuesta));
 
+});
+
+Route::get('/formulario-ok', function(){
+
+	$mensaje = Session::get('mensaje');    
+           $usuariosEmail = Session::get('usuariosEmail');    
+           $datosEncuesta = Session::get('datosEncuesta');    
+           $codigo = Session::get('codigo');  
+
+	return View::make('encuesta.completado', array('mensaje' => $mensaje, 'usuario' => $usuariosEmail , 'encuesta' => $datosEncuesta, 'codigo' => $codigo));
 });
 
 Route::get('{email}/{nombre?}/{empresa?}', array('uses' => 'EncuestasController@formularioTokenEncuesta'));
