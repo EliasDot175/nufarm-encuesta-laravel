@@ -18,6 +18,10 @@ body{
 	display: none;
 }
 
+.w-100{
+	width:100%;
+}
+
 textarea {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -129,6 +133,7 @@ textarea {
 		margin: 0 20%;
 		display: block;
 		float: left;
+		min-width: 600px !important;
 	}
 
 	.head{
@@ -283,6 +288,8 @@ textarea {
 			}
 
 			
+
+			
 		}
 
 		.preguntas{
@@ -358,6 +365,8 @@ textarea {
 				left: 50%;
 				margin-left: -165px;
 			}
+
+
 		}
 
 		.preguntas{
@@ -403,10 +412,11 @@ textarea {
 		float: left;
 		position: relative;
 
+		
 		label{
 			//margin-bottom: -60px;
 			position: absolute;
-			top: 50px;
+			top: 20px;
 			left: 20px;
 
 			img{
@@ -420,7 +430,18 @@ textarea {
 				width: 80%;
 				font-size: 21px;
 				line-height: 22px;
+
+				span{
+					font-size: 14px !important;
+					position: relative;
+					top: -3px;
+					padding-left: 10px;
+				}
+
 			}
+
+
+
 			
 		}
 
@@ -438,7 +459,7 @@ textarea {
 
 		.fondo{
 			background-color: rgba(255, 255, 255, 0.2);
-			width: 400px;
+			width:100%;
 			float: left;
 			border-radius:10px;
 			padding-top: 55px;
@@ -489,6 +510,13 @@ textarea {
 				width: 80%;
 				font-size: 21px;
 				line-height: 22px;
+
+				span{
+					font-size: 14px !important;
+					position: relative;
+					top: -3px;
+					padding-left: 10px;
+				}
 			}
 			
 		}
@@ -538,7 +566,7 @@ textarea {
 		float: left;
 		position: relative;
 		margin-top: 20px;
-		width: 70%;
+		width: 100%;
 
 		.fondo{
 			background-color: rgba(255, 255, 255, 0.2);
@@ -639,7 +667,7 @@ textarea {
 	}
 
 	.contenedor-encuesta .item-preguntas {
-		height: 160px;
+		//height: 160px;
 	}
 
 	.contenedor-encuesta .numero {
@@ -648,7 +676,7 @@ textarea {
 	}
 
 	.contenedor-encuesta .text-pregunta {
-		font-size: 18px;
+		font-size: 22px;
 	}
 
 	.titulo-h5 {

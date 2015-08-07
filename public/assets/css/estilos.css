@@ -204,6 +204,9 @@ body {
 .oculto {
   display: none; }
 
+.w-100 {
+  width: 100%; }
+
 textarea {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -282,7 +285,8 @@ textarea {
     width: 60%;
     margin: 0 20%;
     display: block;
-    float: left; }
+    float: left;
+    min-width: 600px !important; }
   .contenedor-encuesta .head {
     height: 100px;
     background-image: url("../imagenes/header.png");
@@ -464,7 +468,7 @@ textarea {
     position: relative; }
     .contenedor-encuesta .comentario label {
       position: absolute;
-      top: 50px;
+      top: 20px;
       left: 20px; }
       .contenedor-encuesta .comentario label img {
         float: left; }
@@ -475,6 +479,11 @@ textarea {
         width: 80%;
         font-size: 21px;
         line-height: 22px; }
+        .contenedor-encuesta .comentario label p span {
+          font-size: 14px !important;
+          position: relative;
+          top: -3px;
+          padding-left: 10px; }
     .contenedor-encuesta .comentario .img {
       height: 16px;
       width: 100%;
@@ -487,7 +496,7 @@ textarea {
       margin-top: 10px; }
     .contenedor-encuesta .comentario .fondo {
       background-color: rgba(255, 255, 255, 0.2);
-      width: 400px;
+      width: 100%;
       float: left;
       border-radius: 10px;
       padding-top: 55px;
@@ -526,6 +535,11 @@ textarea {
         width: 80%;
         font-size: 21px;
         line-height: 22px; }
+        .contenedor-encuesta .comentario-b label p span {
+          font-size: 14px !important;
+          position: relative;
+          top: -3px;
+          padding-left: 10px; }
     .contenedor-encuesta .comentario-b .img {
       height: 16px;
       width: 100%;
@@ -560,7 +574,7 @@ textarea {
     float: left;
     position: relative;
     margin-top: 20px;
-    width: 70%; }
+    width: 100%; }
     .contenedor-encuesta .comentario-c .fondo {
       background-color: rgba(255, 255, 255, 0.2);
       width: 100%;
@@ -619,15 +633,12 @@ textarea {
     width: 90%;
     margin: 0 5%; }
 
-  .contenedor-encuesta .item-preguntas {
-    height: 160px; }
-
   .contenedor-encuesta .numero {
     margin-bottom: 10px;
     margin-right: 10px; }
 
   .contenedor-encuesta .text-pregunta {
-    font-size: 18px; }
+    font-size: 22px; }
 
   .titulo-h5 {
     color: #fff;

@@ -250,12 +250,11 @@
 
 
 							<div class="contenido">
-								<div  id="sub-{{ 'pregunta'.$pregunta->id }}" class="comentario oculto comentario-<?php echo $letra;?>">
+								<div  id="sub-{{ 'pregunta'.$pregunta->id }}" class="comentario oculto comentario-<?php echo $letra;?> w-100">
 									<!-- COMENTARIOS ACORDEON - Jquery  -->
 									<label class="text-pregunta"  for="role">{{ HTML::image("assets/imagenes/comentario.png", "Imagen no encontrada") }}
 										<p class="text-<?php echo $letra; ?>"></p>
 									</label>
-									<div class="img"></div>
 									<div  class="fondo">
 										<textarea class="text-area-<?php echo $letra; ?>" data-autoresize rows="2"></textarea>
 									</div>
@@ -278,7 +277,7 @@
 				@elseif($tipo == 'comentario-acordeon')
 					<script type="text/javascript" >
 						$( document ).ready(function() {
-							$( ".text-{{ $i }}" ).append( '{{ $pregunta->valor}}');
+							$( ".text-{{ $i }}" ).append( '{{ $pregunta->valor}} <span>  (opcional)</span>');
 	   						$( ".text-area--{{ $i }}" ).attr( 'name', '{{ "pregunta".$pregunta->id }}');
 						});
 					</script>
@@ -450,7 +449,7 @@
 					                               	<div class="comentario-b" id="comentario-G">
 									<label class="text-pregunta" for="role">
 										{{ HTML::image('assets/imagenes/comentario.png', "Imagen no encontrada", array( 'class' => 'item-img', 'title' => 'no')) }}
-										<p>{{ $pregunta->valor}}</p>
+										<p>{{ $pregunta->valor}} <span>  (opcional)</span></p>
 									</label>
 									<div class="img"></div>
 									<div  class="fondo">
