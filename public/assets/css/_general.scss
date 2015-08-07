@@ -62,6 +62,7 @@ h3{
       	text-align: center;
     	background-color: rgba(0, 0, 0, 0.3);
     	padding: 30px;
+    	float: left;
 
     	h1{
 		text-align: center;
@@ -90,10 +91,61 @@ h3{
 
 	.ok{
 		color: #fff;
-		border-bottom: 3px solid  #0f7a07;
-		border-top: 3px solid  #0f7a07;
 		padding: 10px;
 
+	}
+
+	.codigo {
+		color: #fff;
+		width: 277px !important;
+		display: block;
+		float: left;
+		position: relative;
+		left: 50%;
+		margin-left: -136px;
+
+		.block-a{
+			float: left;
+			width: 100%;
+			display: block;
+			margin-top: 15px;
+
+			p {
+			    width: 190px;
+			    text-align: left;
+			    float: left;
+			    margin: 0;
+			    display: block;
+			    left: 0;
+			    font-size: 12px;
+			    padding-left: 10px;
+			}
+			.img {
+			    width: 77px;
+			    float: left;
+			    display: block;
+			}
+		}
+
+		.block-b{
+			float: left;
+			width: 177px;
+			display: block;
+			margin-left: 50px;
+			border: dotted #fff 1px;
+			margin-top: 15px;
+		}
+
+		.block-c{
+			float: left;
+			width: 177px;
+			display: block;
+			margin-left: 50px;
+			margin-top: 15px;
+			background-color: #C4C6B9;
+			height: 50px;
+			padding-top: 15px;
+		}
 	}
 
 	p{

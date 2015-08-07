@@ -436,23 +436,25 @@ textarea {
 			margin-top: 10px;
 		}
 
-		textarea{
-			padding-top: 60px;
-			padding-left: 50px;
-			padding-right: 40px;
-			background-color: rgba(255,255,255,.2);
+		.fondo{
+			background-color: rgba(255, 255, 255, 0.2);
 			width: 400px;
-			border: none;
-			min-height: 200px;
-			height: auto;
 			float: left;
-			border-radius: none;
-			//background-image:url('../imagenes/linea-comentario2.png');
-			background-repeat: no-repeat;
-			background-size: 100%;
-			line-height: 37px;
+			border-radius:10px;
+			padding-top: 55px;
 			margin-bottom: 20px;
-			background-position-y: 80px;
+		}
+
+		textarea{
+			background-image: url("../imagenes/linea-comentario.png");
+			background-repeat: repeat;
+			background-position-y: 30px;
+			width: 90%;
+			margin-left: 5%;
+			background-color: transparent;
+			border: none;
+			line-height: 34px;
+			min-height: 190px;
 		}
 
 		.text-pregunta {
@@ -503,23 +505,26 @@ textarea {
 			margin-top: 10px;
 		}
 
-		textarea{
-			padding-top: 60px;
-			padding-left: 50px;
-			padding-right: 40px;
-			background-color: rgba(255,255,255,.2);
-			width: 400px;
-			border: none;
-			min-height: 200px;
-			height: auto;
+		.fondo{
+			background-color: rgba(255, 255, 255, 0.2);
+			width: 100%;
 			float: left;
-			border-radius: none;
-			//background-image:url('../imagenes/linea-comentario2.png');
-			background-repeat: no-repeat;
-			background-size: 100%;
-			line-height: 37px;
+			border-radius:10px;
+			padding-top: 60px;
 			margin-bottom: 20px;
-			background-position-y: 80px;
+
+		}
+
+		textarea{
+			background-image: url("../imagenes/linea-comentario.png");
+			background-repeat: repeat;
+			background-position-y: 65px;
+			width: 90%;
+			margin-left: 5%;
+			background-color: transparent;
+			border: none;
+			line-height: 34px;
+			min-height: 190px;
 		}
 
 		.text-pregunta {
@@ -536,33 +541,24 @@ textarea {
 		width: 70%;
 
 		.fondo{
-			//background-image: url("../imagenes/linea-comentario-c.png");
-			background-repeat: repeat;
-			background-position-y: 25px;
-			position: absolute;
-			height: 150px;
-			top: 0;
-			left: 0;
-			width: 90%;
-			left: 5%;
-			top: 14%;
-			z-index: -1;
+			background-color: rgba(255, 255, 255, 0.2);
+			width: 100%;
+			float: left;
+			border-radius:10px;
+			padding-top: 10px;
+			margin-bottom: 20px;
 		}
 
 		textarea{
-			padding-top: 10px;
-			padding-left: 35px;
-			padding-right: 20px;
-			background-color: rgba(255, 255, 255, 0.2);
-			width: 100%;
+			background-image: url("../imagenes/linea-comentario.png");
+			background-repeat: repeat;
+			background-position-y: 30px;
+			width: 90%;
+			margin-left: 5%;
+			background-color: transparent;
 			border: none;
-			min-height: 200px;
-			height: auto;
-			float: left;
-			border-radius: none;
-			line-height: 33px;
-			margin-bottom: 20px;
-			z-index: 1;
+			line-height: 34px;
+			min-height: 220px;
 		}
 
 		.text-pregunta {
@@ -649,6 +645,24 @@ textarea {
 	.contenedor-encuesta .numero {
 		margin-bottom: 10px;
 		margin-right: 10px;
+	}
+
+	.contenedor-encuesta .text-pregunta {
+		font-size: 18px;
+	}
+
+	.titulo-h5 {
+	    color: #fff;
+	    font-size: 16px;
+	    margin-bottom: 20px;
+	}
+
+	.contenedor-encuesta .text-pregunta {
+		width: 70%;
+	}
+
+	.contenedor-encuesta .comentario-c {
+	    width: 100%;
 	}
 }
 

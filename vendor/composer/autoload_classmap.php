@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AdminController' => $baseDir . '/app/controllers/AdminController.php',
     'AuthController' => $baseDir . '/app/controllers/AuthController.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Boris\\Boris' => $vendorDir . '/d11wtq/boris/lib/Boris/Boris.php',
@@ -384,7 +385,6 @@ return array(
     'GuzzleHttp\\UriTemplate' => $vendorDir . '/guzzlehttp/guzzle/src/UriTemplate.php',
     'GuzzleHttp\\Url' => $vendorDir . '/guzzlehttp/guzzle/src/Url.php',
     'GuzzleHttp\\Utils' => $vendorDir . '/guzzlehttp/guzzle/src/Utils.php',
-    'HomeController' => $baseDir . '/app/controllers/HomeController.php',
     'HttpCommandExecutor' => $vendorDir . '/facebook/webdriver/lib/remote/HttpCommandExecutor.php',
     'IMEEngineActivationFailedException' => $vendorDir . '/facebook/webdriver/lib/WebDriverExceptions.php',
     'IMENotAvailableException' => $vendorDir . '/facebook/webdriver/lib/WebDriverExceptions.php',
@@ -1214,6 +1214,7 @@ return array(
     'PHP_CodeCoverage' => $vendorDir . '/phpunit/php-code-coverage/src/CodeCoverage.php',
     'PHP_CodeCoverage_Driver' => $vendorDir . '/phpunit/php-code-coverage/src/CodeCoverage/Driver.php',
     'PHP_CodeCoverage_Driver_HHVM' => $vendorDir . '/phpunit/php-code-coverage/src/CodeCoverage/Driver/HHVM.php',
+    'PHP_CodeCoverage_Driver_PHPDBG' => $vendorDir . '/phpunit/php-code-coverage/src/CodeCoverage/Driver/PHPDBG.php',
     'PHP_CodeCoverage_Driver_Xdebug' => $vendorDir . '/phpunit/php-code-coverage/src/CodeCoverage/Driver/Xdebug.php',
     'PHP_CodeCoverage_Exception' => $vendorDir . '/phpunit/php-code-coverage/src/CodeCoverage/Exception.php',
     'PHP_CodeCoverage_Exception_UnintentionallyCoveredCode' => $vendorDir . '/phpunit/php-code-coverage/src/CodeCoverage/Exception/UnintentionallyCoveredCode.php',
@@ -2842,6 +2843,9 @@ return array(
     'System_SSH_Agent_Identity' => $vendorDir . '/phpseclib/phpseclib/phpseclib/System/SSH/Agent.php',
     'TestCase' => $baseDir . '/app/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
+    'Thujohn\\Pdf\\Pdf' => $vendorDir . '/thujohn/pdf/src/Thujohn/Pdf/Pdf.php',
+    'Thujohn\\Pdf\\PdfFacade' => $vendorDir . '/thujohn/pdf/src/Thujohn/Pdf/PdfFacade.php',
+    'Thujohn\\Pdf\\PdfServiceProvider' => $vendorDir . '/thujohn/pdf/src/Thujohn/Pdf/PdfServiceProvider.php',
     'TimeOutException' => $vendorDir . '/facebook/webdriver/lib/WebDriverExceptions.php',
     'URLChecker' => $vendorDir . '/facebook/webdriver/lib/net/URLChecker.php',
     'UnableToSetCookieException' => $vendorDir . '/facebook/webdriver/lib/WebDriverExceptions.php',
@@ -2856,7 +2860,7 @@ return array(
     'User' => $baseDir . '/app/models/User.php',
     'UserTableSeeder' => $baseDir . '/app/database/seeds/UserTableSeeder.php',
     'Usuario' => $baseDir . '/app/models/Usuario.php',
-    'UsuariosController' => $baseDir . '/app/controllers/UsuariosController.php',
+    'UsuarioEncuesta' => $baseDir . '/app/models/UsuarioEncuesta.php',
     'WebDriver' => $vendorDir . '/facebook/webdriver/lib/WebDriver.php',
     'WebDriverAction' => $vendorDir . '/facebook/webdriver/lib/WebDriverAction.php',
     'WebDriverActions' => $vendorDir . '/facebook/webdriver/lib/interactions/WebDriverActions.php',

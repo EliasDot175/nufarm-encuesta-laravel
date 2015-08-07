@@ -44,6 +44,18 @@
 		<h1 class="error"> {{ $encuesta->nombre }}</h1>
 		<h2>Muchas gracias por participar de la encuesta.</h2>
 		<p class="text-uppercase">{{ $mensaje }}</p>
+            <div class="codigo">
+                <div class="block-a">
+                      {{ HTML::image('assets/imagenes/Nufarm-encuesta-sorteo.png', "Imagen no encontrada", array( 'class' => 'img', 'title' => 'barra')) }}
+                      <p class="text-uppercase">PARA PARTICIPAR DEL SORTEO POR UNA CAMPERA NEXXT, GUARDE EL SIGUIENTE CÓDIGO</p>
+                </div>
+                <div class="block-b">
+                      <p class="text-uppercase">{{ $codigo }}</p>
+                </div>
+                <div class="block-c">
+                       <a href={{ URL::route('descargar', array('codigo' => $codigo) )}}>descargar: {{ $codigo }}</a>
+                </div>            
+          </div>
 	</div>
 			
 

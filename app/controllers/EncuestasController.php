@@ -19,6 +19,7 @@ class EncuestasController extends BaseController {
         if ($usuarioIP) {
             $mensaje =  'Usted ya ha completado la encuesta, sólo puede realizar esta acción una vez';
             return View::make('encuesta.error', array('mensaje' => $mensaje, 'usuario' => $usuarioIP, 'encuesta' => $datosEncuesta));
+
         }
 
         return View::make('encuesta.formulario', array('preguntas' => $preguntas, 'encuesta' => $datosEncuesta));
@@ -39,14 +40,20 @@ class EncuestasController extends BaseController {
         $usuariosEmail = DB::table('users')->where('email', $email)->first();
         if ($usuariosEmail && $usuariosEmail != 'anónimo' ) {
             $mensaje =  'Usted ya ha completado la encuesta, sólo puede realizar esta acción una vez';
-            return View::make('encuesta.error', array('mensaje' => $mensaje, 'usuario' => $usuariosEmail , 'encuesta' => $datosEncuesta));
-        }
+            $codigo = $usuariosEmail->codigo;
+            return View::make('encuesta.error', array('mensaje' => $mensaje, 'usuario' => $usuariosEmail , 'encuesta' => $datosEncuesta, 'codigo' => $codigo));
+         }
 
-        //return Redirect::to('encuesta/crear/{encuesta}/{email}');
-        //return Redirect::route('usuario-identificado', array('email' => $email, 'encuesta' => 1));
+        Session::put('preguntas', $preguntas);    
+        Session::put('email', $email);    
+        Session::put('nombre', $nombre);    
+        Session::put('empresa', $empresa);    
+        Session::put('datosEncuesta', $datosEncuesta);    
 
-        return View::make('encuesta.formulario', array('preguntas' => $preguntas, 'email' => $email, 'nombre' => $nombre, 'empresa' => $empresa, 'encuesta' => $datosEncuesta));
+        return Redirect::to('/formulario');
+    
     }
+
 
 
     /* * * 
@@ -65,14 +72,24 @@ class EncuestasController extends BaseController {
             //Inserta usuario por email e ip
             $ip=Request::getClientIp();
             
-
+            
             $usuariosEmail = DB::table('users')->where('email', $email)->first();
+
+
+            //codigo rand
+            $usuariosEmail = DB::table('users')->where('email', $email)->first();
+            $base = 1245;
+            $cant= DB::table('users')->count();
+
+            $random = $base + $cant;
+
             if (empty($usuariosEmail )) {
                     $x = new User();
                     $x->email =  $email;
                     $x->nombre =  $nombre;
                     $x->empresa =  $empresa;
                     $x->ip =  $ip;
+                    $x->codigo = $random;
                     $x->save();
             }else{
                 $mensaje =  'Usted ya ha completado la encuesta, sólo puede realizar esta acción una vez';
@@ -91,7 +108,6 @@ class EncuestasController extends BaseController {
             $usuarioEncuesta =  $usuarioEnc->id;
 
             //Inserta respuestas
-
             for ($i=1; $i <= $cantidad; $i++) { 
                
                     $valor = Input::get('pregunta'.$i);
@@ -105,6 +121,6 @@ class EncuestasController extends BaseController {
                    
              }
         
-             return View::make('encuesta.completado', array('encuesta' => $datosEncuesta,'email' => $email, 'nombre' => $nombre, 'empresa' => $empresa,));
+             return View::make('encuesta.completado', array('encuesta' => $datosEncuesta,'email' => $email, 'nombre' => $nombre, 'empresa' => $empresa, 'codigo' => $random));
     }
 }

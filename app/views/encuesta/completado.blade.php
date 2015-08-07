@@ -42,6 +42,11 @@
 	<div class="mensaje">
 		<h1 class="error"> {{ $encuesta->nombre }}</h1>
 		<h2>Muchas gracias por participar de la encuesta.</h2>
+          <div class="codigo">
+                <p class="text-uppercase">Tu código para participar del sorteo es:</p>
+                <p class="text-uppercase">{{ $codigo }}</p>
+                <a href={{ URL::route('descargar', array('codigo' => $codigo) )}}>descargar: {{ $codigo }}</a>
+          </div>
 	</div>
 
 @stop

@@ -40,6 +40,8 @@
         	</div>
         	<!-- //Preguntas -->
 
+        
+
 
 	<!-- Formulario -->
 	<div class="form-group form-encuesta">
@@ -254,7 +256,10 @@
 										<p class="text-<?php echo $letra; ?>"></p>
 									</label>
 									<div class="img"></div>
-									<textarea class="text-area-<?php echo $letra; ?>" data-autoresize rows="2"></textarea>
+									<div  class="fondo">
+										<textarea class="text-area-<?php echo $letra; ?>" data-autoresize rows="2"></textarea>
+									</div>
+									
 					        			</div>
 							</div>
 
@@ -425,8 +430,9 @@
 				             <div class="sub-preguntas col-xs-12 col-sm-12 col-md-12 ol-lg-12">
 						<div class="contenido">
 				                               	<div class="comentario-c" id="comentario-G">
-								<div data-autoresize class="fondo"></div>
-								<textarea data-autoresize required name={{ 'pregunta'.$pregunta->id }}></textarea>
+								<div  class="fondo">
+									<textarea data-autoresize required name={{ 'pregunta'.$pregunta->id }}></textarea>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -447,7 +453,9 @@
 										<p>{{ $pregunta->valor}}</p>
 									</label>
 									<div class="img"></div>
-									<textarea data-autoresize value="null" name={{ 'pregunta'.$pregunta->id }}></textarea>
+									<div  class="fondo">
+										<textarea data-autoresize value="null" name={{ 'pregunta'.$pregunta->id }}></textarea>
+									</div>
 								</div>
 							</div>
 						</div>
