@@ -48,11 +48,55 @@ Route::get('vista', function()
 Route::get('descargar/{codigo}',array('as' => 'descargar',function($codigo)
 {
 	$token = Session::get("_token");
-    	$html = '<html><body>';
-    	$html.= '<p style="color:red">Generando un sencillo pdf ';
-    	$html.= 'de forma realmente sencilla.</p>'.$codigo;
-    	$html.= '</body></html>';
-    	return PDF::load($html, 'A4', 'portrait')->download('nombreArchivoPdf');
+    	$html = '<html>
+    			<head>
+		    	           <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		    	           <title>Nufarm - Encuesta</title>
+		                        <title>Nufarm - Encuesta</title>
+		                        <link media="all" type="text/css" rel="stylesheet" href="http://nufarm-maxx.com/encuesta/public/assets/css/bootstrap.min.css">
+		                        <link media="all" type="text/css" rel="stylesheet" href="http://nufarm-maxx.com/encuesta/public/assets/css/estilos.css?ver=06-08">
+		                        <link media="all" type="text/css" rel="stylesheet" href="http://nufarm-maxx.com/encuesta/public/assets/bootstrap-3.3.4/css/bootstrap.min.css">
+                        	<head>
+                      <body style="background-color: #EAEAEA;">';
+
+    	$html  = ' <div style="background-color: #EAEAEA; float: left; height: 1000px;">
+    			<img style="width: 100%" src="http://nufarm-maxx.com/encuesta/public/assets/imagenes/Nufarm-header.png" id="Nufarm" title="Nufarm" alt="Imagen no encontrada">
+	    		<div class="mensaje">
+	    			<img style="width: 460px; display:block; position: relative; margin-left:-230px; left: 50%; margin-top: 60px;" src="http://nufarm-maxx.com/encuesta/public/assets/imagenes/Nufarm-text.png" id="Nufarm" title="Nufarm" alt="Imagen no encontrada">
+	    		
+		                	<div class="block-b" style=" float: left;
+								width: 200px;
+								display: block;
+								margin-left: -110px;
+								border: dashed #666 1px;
+								margin-top: 15px;
+								height: 88px;
+								position: relative;
+			                      		    		left: 50%;
+			                      		    		">
+		                      		<p class="text-uppercase" style=" 
+		                      				font-size: 57px; 
+		                      				text-align: center;
+		                      		    		margin: 0;
+		                      		    		padding: 0;
+		                      		    		width: 100%;
+		                      		    		color: #777777;
+		                      		    		padding-top: 8px;"
+		                      		    		font:arial, sans-serif;>'
+		                      		    	.$codigo.'
+		                      		</p>
+		                	</div>   
+
+		                	<img style="width: 100%;position: absolute; bottom: 180px;" src="http://nufarm-maxx.com/encuesta/public/assets/imagenes/Nufarm-footer.png" id="Nufarm" title="Nufarm" alt="Imagen no encontrada">
+	    		
+	          		</div>
+		</div>
+	</div>';
+
+	$html.= '</body></html>';
+
+    	//return PDF::load($html, 'A4', 'portrait')->download('Nufarm-Encuesta-Codigo');
+    	return PDF::load($html, 'A4', 'portrait')->show();
 }));
 
 

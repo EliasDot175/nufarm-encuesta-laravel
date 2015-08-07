@@ -83,7 +83,7 @@ h3 {
       float: left;
       width: 100%;
       display: block;
-      margin-top: 15px; }
+      margin-top: 10px; }
       .mensaje .codigo .block-a p {
         width: 190px;
         text-align: left;
@@ -102,8 +102,16 @@ h3 {
       width: 177px;
       display: block;
       margin-left: 50px;
-      border: dotted #fff 1px;
-      margin-top: 15px; }
+      border: dashed #fff 1px;
+      margin-top: 15px;
+      height: 88px; }
+      .mensaje .codigo .block-b p {
+        font-size: 57px;
+        margin: 0;
+        padding: 0;
+        left: 0;
+        width: 177px;
+        padding-top: 3px; }
     .mensaje .codigo .block-c {
       float: left;
       width: 177px;
@@ -112,7 +120,15 @@ h3 {
       margin-top: 15px;
       background-color: #C4C6B9;
       height: 50px;
-      padding-top: 15px; }
+      padding-top: 15px;
+      -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+      -moz-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75);
+      box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.75); }
+      .mensaje .codigo .block-c a {
+        color: #008A39; }
+      .mensaje .codigo .block-c a:hover {
+        color: #036029;
+        text-decoration: none; }
   .mensaje p {
     text-align: center;
     color: #fff;

@@ -53,7 +53,7 @@
                       <p class="text-uppercase">{{ $codigo }}</p>
                 </div>
                 <div class="block-c">
-                       <a href={{ URL::route('descargar', array('codigo' => $codigo) )}}>descargar: {{ $codigo }}</a>
+                       <a href={{ URL::route('descargar', array('codigo' => $codigo) )}}>GUARDAR EN PDF</a>
                 </div>            
           </div>
 	</div>
