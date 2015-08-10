@@ -13,6 +13,15 @@ jQuery.each(jQuery('textarea[data-autoresize]'), function() {
 
 $(document).ready(function(){
 
+	$(window).resize(function() {
+		var windowHeight = $(window).height();
+		if(windowHeight > 850){
+			$('.footer').css('position', 'fixed');
+		}else{
+			$('.footer').css('position', 'relative');
+		}
+	});
+
 	// default
    	$('#pagina-1').fadeIn();
    	$('#anterior').css('display', 'none');

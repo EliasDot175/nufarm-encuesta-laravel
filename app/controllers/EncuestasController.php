@@ -79,7 +79,10 @@ class EncuestasController extends BaseController {
             }
 
             $usuarios = DB::table('users')->where('email', $email)->first();
-            $usuario =  $usuarios->id;
+            $usuario =  $usuarios ->id;
+
+            $codigo = $usuarios ->codigo;
+            Session::put('codigo', $codigo);  
 
             //Inserta usuario_encuesta
             $x = new UsuarioEncuesta();
@@ -102,6 +105,8 @@ class EncuestasController extends BaseController {
                     }
                    
              }
+
+              
 
             return Redirect::to('/formulario-ok');
              //return View::make('encuesta.completado', array('encuesta' => $datosEncuesta,'email' => $email, 'nombre' => $nombre, 'empresa' => $empresa, 'codigo' => $random));
