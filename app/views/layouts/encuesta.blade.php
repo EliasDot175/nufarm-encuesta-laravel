@@ -17,7 +17,16 @@
                                 <div class="head">
                                         <div class="contenido">
                                                 {{ HTML::image('assets/imagenes/Nufarm-max-logo.png', "Imagen no encontrada", array('id' => 'Nufarm', 'title' => 'Nufarm')) }}
+                                                <div class="block-terminos">
+                                                        <p class="terminos item-a">Encuesta de Satifacción </p>   
+                                                        <p class="terminos item-a">del Programa Marketing Net </p> 
+                                                        <p class="terminos item-a"> Campaña 2014/15 </p>  
+                                                <div class="sepadador"></div>
+                                                        <p class="terminos item-b text-uppercase">La participación en esta encuesta</p>   
+                                                        <p class="terminos item-b text-uppercase">y sorteo es totalmente anónima.</p>    
+                                                </div>
                                         </div>
+                                        
                                 </div>
                                 <!-- //head -->
                         
@@ -39,6 +48,7 @@
                     
                     {{ HTML::script('assets/bootstrap-3.3.4/js/bootstrap.min.js') }}
                     {{ HTML::script('assets/js/eventos.js') }}
+                    {{ HTML::script('assets/js/modernizr.js') }}
 
              </body>
 </html>

@@ -75,7 +75,7 @@ class EncuestasController extends BaseController {
                     $x->save();
             }else{
                 $mensaje =  'Usted ya ha completado la encuesta, sólo puede realizar esta acción una vez';
-                return View::make('encuesta.error', array('mensaje' => $mensaje, 'encuesta' => $datosEncuesta));
+                return View::make('encuesta.completado', array('mensaje' => $mensaje, 'encuesta' => $datosEncuesta));
             }
 
             $usuarios = DB::table('users')->where('email', $email)->first();

@@ -22,6 +22,41 @@ body{
 	width:100%;
 }
 
+.block-terminos{
+	margin-top: 10px;
+	width: 400px;
+	float: right;
+
+	.terminos{
+		width: 100%;
+		opacity: .8;
+		color: #fff;
+		float: right;
+		margin: 0;
+		padding: 0;
+		text-align: right;
+		line-height: 14px;	
+	}
+
+	.item-a{
+		font-family: 'BrooklynSamuelsFive-Bold';
+		font-size: 15px;
+		line-height: 17px;	
+	}
+
+	.item-b{
+		font-family: 'Brandon_reg';
+		font-size: 10px;	
+	}
+
+	.sepadador{
+		width: 100%;
+		height: 5px;
+		float: left;		
+	}
+
+}
+
 textarea {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -30,6 +65,10 @@ textarea {
 //acordeon
 
 #accordion {
+
+	.panel{
+		background-color: transparent !important;
+	}
 
 
 	.panel-acordeon {
@@ -106,12 +145,24 @@ textarea {
 		color: #fff;
 	}
 
+	.boton:hover{
+		opacity: .8;
+	}
+
 	.boton-rigth{
 		float: right;
 	}
 
 	.boton-left{
 		float: left;
+	}
+
+	.boton-rigth:hover{
+		opacity: .8;
+	}
+
+	.boton-left:hover{
+		opacity: .8;
 	}
 }
 
@@ -121,7 +172,7 @@ textarea {
 	display: block;
 	width: 100%;
 	font-family: 'BrooklynSamuelsFive-Bold';
-	padding-bottom: 30px;
+	padding-bottom: 130px;
 	float: left;
 	 overflow:auto;
 
@@ -162,6 +213,7 @@ textarea {
 			width: 50px;
 			height: 50px;
 			border-radius: 100%;
+			-ms-border-radius: 100%;
 			border: none;
 			background-color: $violeta;
 			border: 2px solid $violeta;
@@ -176,6 +228,7 @@ textarea {
 		width: 50px;
 		height: 50px;
 		border-radius: 100%;
+		-ms-border-radius: 100%;
 		border: 2px solid #fff;
 		float: left;
 		margin-right: 15px;
@@ -184,7 +237,7 @@ textarea {
 			color: #fff;
 			font-size: 30px;
 			text-align: center;
-			margin-top: 3px;
+			margin-top: 5px;
 			margin-left: -1px;
 		}
 	}
@@ -206,6 +259,8 @@ textarea {
 		width: 74px;
 		height: 74px;
 		border-radius: 100%;
+		-ms-border-radius: 100%;
+		-ms-border-radius: 100%;
 		border: 2px solid $violeta;
 		float: left;
 		margin-right: 15px;
@@ -215,7 +270,7 @@ textarea {
 			color: $violeta;
 			font-size: 38px;
 			text-align: center;
-			margin-top: 9px;
+			margin-top: 12px;
 			margin-left: -1px;
 		}
 	}
@@ -261,15 +316,14 @@ textarea {
 				position: relative;
 				top: 50%;
 				transform: translateY(-50%);
+				-moz-transform: translateY(-50%);
+				-webkit-transform: translateY(-50%);
 				margin-top: 0;
 			}
 
 			.contenido {
 				height: auto;
 			}
-
-			
-
 			
 		}
 
@@ -289,6 +343,8 @@ textarea {
 				position: relative;
 				top: 50%;
 				transform: translateY(-50%);
+				-moz-transform: translateY(-50%);
+				-webkit-transform: translateY(-50%);
 				margin-top: 0;
 			}
 
@@ -329,6 +385,8 @@ textarea {
 				position: relative;
 				top: 50%;
 				transform: translateY(-50%);
+				-moz-transform: translateY(-50%);
+				-webkit-transform: translateY(-50%);
 				margin-top: 0;
 			}
 
@@ -366,6 +424,8 @@ textarea {
 				position: relative;
 				top: 50%;
 				transform: translateY(-50%);
+				-moz-transform: translateY(-50%);
+				-webkit-transform: translateY(-50%);
 				margin-top: 0;
 			}
 
@@ -504,14 +564,17 @@ textarea {
 
 		.img{
 			height: 16px;
-			width: 100%;
+			//width: 100%;
 			border: none;
 			background-image:url('../imagenes/comentario2.png');
 			background-repeat: no-repeat;
 			float: left;
-			background-position-x: 85px;
+			//background-position-x: 85px;
 			opacity: .8;
 			margin-top: 10px;
+			height: 16px;
+			width: 80%;
+			margin-left: 85px;
 		}
 
 		.fondo{
@@ -610,17 +673,22 @@ textarea {
 			width: 70px;
 		}
 
-		input{
-			cursor: pointer;
-		}
+		
 
 		.item{
 			width: 100%;
-			float: leftt;
+			text-align: center;
 
 			p{
 				text-align: center;
 				color: #fff;
+			}
+
+			input{
+				width: 20px;
+				cursor: pointer;
+				display: block;
+				margin: 5px auto;
 			}
 			
 		}
@@ -672,19 +740,37 @@ textarea {
 /*mobile--------------------------------------------------*/
 @media screen and (min-width: 0px) and (max-width : 767px){
 
+	body {
+	    background: #3D5927 url("../imagenes/fondo-mobile.jpg");
+	    background-size: cover !important;
+	}
+
 	.contenedor-encuesta .contenido {
 		width: 90%;
 		margin: 0 5%;
 	}
 
 	.contenedor-encuesta .item-preguntas {
-		height: 160px;
+		height: auto;
+		float: left;
+		width: 100%;
+		padding: 20px 0 10px 0;
+	}
+
+	.item-preguntas .mobile{
+	        width: 320px;
+		margin: 0 auto;
+	}
+
+	.item-preguntas .contenido {
+		display: inline-block;	
 	}
 
 	.contenedor-encuesta .numero {
 		margin-bottom: 15px;
 		margin-right: 15px;
 		margin-left: 15px;
+		 text-align:center; 
 	}
 
 	.contenedor-encuesta .text-pregunta {
@@ -723,6 +809,67 @@ textarea {
 	    display: none;
 	}
 
+
+	.contenedor-encuesta .num-violeta {
+	    width: 54px;
+	    height: 54px;
+	}
+
+	.contenedor-encuesta .num-violeta p {
+	    margin-top: 3px;
+	}
+
+	.contenedor-encuesta .block-pregunta .preguntas .contenido {
+	    min-height: 200px;
+	}
+
+	.contenedor-encuesta .text-pregunta {
+	    font-size: 18px;
+	    line-height: 20px;
+	}
+
+	#accordion .panel-acordeon .text-pregunta {
+	    padding-right: 30px;
+	}
+
+	.contenedor-encuesta .head img {
+	    width: 200px;
+	}
+
+	.contenedor-encuesta .head {
+	    height: 85px;
+	}
+
+	.contenedor-encuesta .comentario-b {
+	    width: 300px;
+	    margin-left: -150px;
+
+	}
+
+	.contenedor-encuesta .comentario-b .img {
+	    //background-position-x: 88px;
+	    margin-left: 88px;
+	}
+
+	/*.contenedor-encuesta .comentario-b {
+	    width: 100%;
+	    margin-left: 0;
+	    left: 0;
+	}
+
+	.contenedor-encuesta .comentario-b .img {
+	    background-position-x: 40%;
+	}*/
+
+	.contenedor-encuesta {
+	    margin-bottom: 0px;
+	    padding-bottom: 0;
+	}
+
+	.contenedor-encuesta .letra {
+	    margin-top: 0px;
+	}
+
 	    
 }
 
@@ -732,6 +879,8 @@ textarea {
 		width: 90%;
 		margin: 0 5%;
 	}
+
+	
 }
 
 /*tablet----------------------------------------*/
@@ -740,10 +889,27 @@ textarea {
 		width: 80%;
 		margin: 0 10%;
 	}
+
+	.terminos{
+		width: 25%;
+	}
 }
 
 /**  TABLETS LANDSCAPE **/
 @media screen and (min-width: 771px) and (max-width : 900px){
+
+	.terminos{
+		width: auto;
+	}
+
+}
+
+/**  TABLETS LANDSCAPE **/
+@media screen and (max-width: 960px) {
+
+	.terminos{
+		display: none;
+	}
 
 }
 

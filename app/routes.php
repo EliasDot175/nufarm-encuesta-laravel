@@ -127,4 +127,17 @@ Route::post('encuesta/usuario-identificado', array('as' => 'usuario-identificado
 Route::post('crear/{encuesta}/{email}/{nombre?}/{empresa?}', array('as' => 'encuesta','uses' => 'EncuestasController@crearEncuesta'));
 
 
+/*App::missing(function($exception)
+{
+    return Response::view('error', array(), 404);
+});
+*/
+
+/*App::abort(404);
+App::missing(function($exception)
+{
+    $message = $exception->getMessage();
+    $data = array('message', $message);
+    return Response::view('errors.missing', $data, 404);
+});*/
 

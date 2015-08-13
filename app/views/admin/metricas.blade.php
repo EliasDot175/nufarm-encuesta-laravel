@@ -20,9 +20,6 @@
 	        		<h1 class="text-uppercase">Cantidad de Encuestas realizadas: <span>{{ $users = DB::table('usuario_encuesta')->count(); }}</span></h1>
 	        	</div>
 
-
-	
-
 			<?php 
 				//contadores
 				$ident=1; 
@@ -37,7 +34,6 @@
 				$tipoValue = DB::table('tipo_dato')->where('id', $valueTipo)->first();
 				$tipo = $tipoValue->valor; 
 			?>
-
 
 				<?php
 					//tipo de respuesta ( exelente-muy bueno-bueno -regunal-malo  /  si-no)
@@ -64,15 +60,14 @@
 						</div>
 					</div>
 				</div>
-				
-			             @elseif($identificacion == 'null')
+
+
+			          @elseif($identificacion == 'null')
 			             
 
-
-
-		                          @endif
-
+		                     @endif
 	       		
+
 				<!--campos-->
 		       		<div class="campo">
 					@if($tipo == 'si-no')
@@ -151,8 +146,8 @@
 							</thead>
 							<tbody>
 								<tr>
-								          <td>{{ $users = DB::table('respuesta')->where('valor', 'si')->where('idEncuestaPregunta', $pregunta->id)->count(); }}</td>
-									<td>{{ $users = DB::table('respuesta')->where('valor', 'no')->where('idEncuestaPregunta', $pregunta->id)->count(); }}</td>
+								          <td>{{ $users = DB::table('respuesta')->where('valor', 'Tengo Interes')->where('idEncuestaPregunta', $pregunta->id)->count(); }}</td>
+									<td>{{ $users = DB::table('respuesta')->where('valor', 'No tengo Interes')->where('idEncuestaPregunta', $pregunta->id)->count(); }}</td>
 									<td>{{ $users = DB::table('respuesta')->where('valor', 'ns/nc')->where('idEncuestaPregunta', $pregunta->id)->count(); }}</td>
 								</tr>
 						       	</tbody>
@@ -179,6 +174,25 @@
 
 					@elseif($tipo == 'sub-text')
 						<h5>{{ $pregunta->valor}}</h5>
+
+						<?php 
+							$respuestas = DB::table('respuesta')->where('idEncuestaPregunta', $pregunta->id)->get(); 
+							$resp = DB::table('respuesta')->where('idEncuestaPregunta', $pregunta->id)->count();
+						?>
+						
+						@if( $resp != 0 )
+							<p>Cantidad de  Respuestas: {{ $resp }}</p>
+							@foreach($respuestas as $respuesta)
+						     		<ul class="list-group">
+							        		<li class="list-group-item">  {{ $respuesta->valor }}</li>
+							        	</ul>
+							@endforeach
+						@else
+							<p>No hay comentarios</p>
+
+						@endif
+
+					@elseif($tipo == 'text')
 
 						<?php 
 							$respuestas = DB::table('respuesta')->where('idEncuestaPregunta', $pregunta->id)->get(); 

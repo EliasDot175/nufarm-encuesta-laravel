@@ -20,6 +20,7 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
+				<th> Código </th>
 		             	<th> Nombre </th>
 		             	<th> Empresa </th>
 		             	<th> Email </th>
@@ -33,6 +34,7 @@
 				   		$usuarios = $encuesta->idUsuario;
 				  		$usuario = DB::table('users')->where('id', $usuarios)->first();
 				        	?>
+				        	<td >{{ $usuario ->codigo}}</td> 
 			             	<td >{{ $usuario ->nombre}}</td>
 			             	<td >{{ $usuario ->empresa}}</td>
 			             	<td >{{ $usuario ->email }}</td>

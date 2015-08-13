@@ -1,4 +1,4 @@
-@font-face{
+/*@font-face{
 	font-family: "BrooklynSamuelsFive-Bold";
 	src: url('../fuentes/Samuelstype - BrooklynSamuelsFive-Bold.otf');
 }
@@ -6,7 +6,34 @@
 @font-face{
 	font-family: "Brandon_reg";
 	src: url('../fuentes/Brandon_reg.otf');
+}*/
+
+@font-face {
+    font-family: 'BrooklynSamuelsFive-Bold';
+    src: url('../fuentes/samuelstype_-_brooklynsamuelsfive-bold-webfont.eot');
+    src: url('../fuentes/samuelstype_-_brooklynsamuelsfive-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fuentes/samuelstype_-_brooklynsamuelsfive-bold-webfont.woff2') format('woff2'),
+         url('../fuentes/samuelstype_-_brooklynsamuelsfive-bold-webfont.woff') format('woff'),
+         url('../fuentes/samuelstype_-_brooklynsamuelsfive-bold-webfont.ttf') format('truetype'),
+         url('../fuentes/samuelstype_-_brooklynsamuelsfive-bold-webfont.svg#brooklyn_samuelsno5_bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
+
+@font-face {
+    font-family: 'Brandon_reg';
+    src: url('../fuentes/brandon_reg-webfont.eot');
+    src: url('../fuentes/brandon_reg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fuentes/brandon_reg-webfont.woff2') format('woff2'),
+         url('../fuentes/brandon_reg-webfont.woff') format('woff'),
+         url('../fuentes/brandon_reg-webfont.ttf') format('truetype'),
+         url('../fuentes/brandon_reg-webfont.svg#brandon_grotesque_regularRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 
 $violeta: rgba(142,50,137,.9);
 
