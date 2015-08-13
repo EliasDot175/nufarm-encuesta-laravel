@@ -8,9 +8,25 @@ class AdminController extends BaseController {
     {
         $encuesta = UsuarioEncuesta::all(); 
         //Datos encuesta y lista preguntas
-        $encuesta = 1;
-        $preguntas= DB::table('pregunta')->where('idEncuesta', $encuesta)->get();
-        $datosEncuesta = DB::table('encuesta')->where('id', $encuesta)->first();
+        // $encuesta = 1;
+        $preguntas = Pregunta::where('idEncuesta', 1)
+                        ->join('tipo_dato','pregunta.tipo','=','tipo_dato.id')
+                        ->join('identificacion_preguntas as id_preg','pregunta.identificacion','=','id_preg.id')
+                        ->select('pregunta.id','pregunta.valor as valpregunta', 'pregunta.posicion as posicion','id_preg.valor as id_preg_valor','tipo_dato.valor as tipo_dato_valor')
+                        ->get()
+                        ->toArray();
+
+        $respuestas = Pregunta::find(3)->respuestas()->get();
+
+        
+
+        // $datosEncuesta = DB::table('encuesta')->where('id', $encuesta)->first();
+
+
+        echo "<pre>";
+        print_r($respuestas);
+        echo "</pre>";
+        die();
 
         return View::make('admin.metricas', array('encuestas' => $encuesta,'preguntas' => $preguntas));
     }
@@ -44,5 +60,11 @@ class AdminController extends BaseController {
 
         return View::make('admin.ver', array( 'usuarios' => $usuarios, 'respuestas' => $respuestas));
     }
+
+
+
+
+
+
 
 }

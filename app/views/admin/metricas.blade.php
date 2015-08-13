@@ -16,10 +16,6 @@
 @section('content')
 	<div class="metricas">
 
-		<div class="panel panel-success">
-	        		<h1 class="text-uppercase">Cantidad de Encuestas realizadas: <span>{{ $users = DB::table('usuario_encuesta')->count(); }}</span></h1>
-	        	</div>
-
 			<?php 
 				//contadores
 				$ident=1; 
@@ -47,18 +43,56 @@
 				?>
 
 				@if($identificacion == 'numero')
-				<div class="block-pregunta col-xs-12 col-sm-12 col-md-12 ol-lg-12">
-					<div class="preguntas col-xs-12 col-sm-12 col-md-12 ol-lg-12">
-						<div class="contenido">
-							<div id="pregunta<?php echo $ident; ?>" class="block num-violeta">
-				                                       	<p>0 <?php echo $ident; ?> </p>         
-				                               	</div>
-				                               	<?php $ident = $ident + 1; ?>
-							<!-- pregunta -->
-							<label class="block text-pregunta text-uppercase"  for="role">{{ $pregunta->valor}}</label>
-							<!-- //pregunta -->
+				<div class=" block-pregunta">
+						<div class="container">
+							<div class="row">
+								<div class="left pull-left col-md-8">
+									<div class="cont-ident col-md-2">
+										<div class="ident">
+											0{{$ident}}
+										</div>
+									</div>
+						                               	<?php $ident = $ident + 1; ?>
+									<!-- pregunta -->
+									<div class="block  col-md-8 text-pregunta text-uppercase"  for="role">{{ $pregunta->valor}}</div>
+									<!-- //pregunta -->
+								</div>
+								<div class="right pull-right col-md-4">
+									@if($tipo == 'si-no')
+									<div class="container respuestas col-md-12">
+										<div class="si">{{	Respuesta::si($pregunta->id); }}</div>
+										<div class="no">{{ 	Respuesta::no($pregunta->id); }}</div>
+									</div>
+									@elseif($tipo == 'e-mb-b-r-m-ns/nc')
+									<div class="container respuesta1">
+										<h5>{{ $pregunta->valor}}</h5>
+										<table class="table table-striped">
+											<thead>
+												<tr>
+											             	<th> Exelente</th>
+											             	<th>Muy Buena</th>
+											             	<th> Buena</th>
+											             	<th> Regular</th>
+											             	<th> Mala</th>
+											             	<th> Ns/Nc</th>
+											            </tr>
+											</thead>
+											<tbody>
+												<tr>
+												          <td>{{ $users = DB::table('respuesta')->where('valor', 'exelente')->where('idEncuestaPregunta', $pregunta->id)->count(); }}</td>
+													<td>{{ $users = DB::table('respuesta')->where('valor', 'muy buena')->where('idEncuestaPregunta', $pregunta->id)->count(); }}</td>
+													<td>{{ $users = DB::table('respuesta')->where('valor', 'buena')->where('idEncuestaPregunta', $pregunta->id)->count(); }}</td>
+													<td>{{ $users = DB::table('respuesta')->where('valor', 'regular')->where('idEncuestaPregunta', $pregunta->id)->count(); }}</td>
+													<td>{{ $users = DB::table('respuesta')->where('valor', 'mala')->where('idEncuestaPregunta', $pregunta->id)->count(); }}</td>
+													<td>{{ $users = DB::table('respuesta')->where('valor', 'ns/nc')->where('idEncuestaPregunta', $pregunta->id)->count(); }}</td>
+												</tr>
+										       	</tbody>
+										</table>
+									</div>
+									@endif
+								</div>
+							</div>
 						</div>
-					</div>
 				</div>
 
 
@@ -71,23 +105,7 @@
 				<!--campos-->
 		       		<div class="campo">
 					@if($tipo == 'si-no')
-
-						<table class="table table-striped">
-							<thead>
-								<tr>
-							             	<th> si</th>
-							             	<th> no</th>
-							            </tr>
-							</thead>
-							<tbody>
-								<tr>
-								          <td>{{ $users = DB::table('respuesta')->where('valor', 'si')->where('idEncuestaPregunta', $pregunta->id)->count(); }}</td>
-									<td>{{ $users = DB::table('respuesta')->where('valor', 'no')->where('idEncuestaPregunta', $pregunta->id)->count(); }}</td>
-								</tr>
-						       	</tbody>
-						</table>
-
-						<hr>
+						
 
 					@elseif($tipo == 'e-mb-b-r-m-ns/nc')
 						<h5>{{ $pregunta->valor}}</h5>

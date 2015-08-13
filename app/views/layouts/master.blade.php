@@ -9,30 +9,36 @@
                                 <script src="assets/bootstrap-3.3.4/js/bootstrap.min.js"></script>
             </head>
             <body>
+            
                             <!-- contenedor -->
-                            <div class="container">
+                            <header>
+                                <div class="logo-header"></div>
+                            </header>
+                            <div class="container-fluid no-pd">
 
-                                        <nav class="navbar navbar-default" role="navigation">
-                                                  <div class="navbar-header">
-                                                        <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                                            data-target=".navbar-ex1-collapse">
-                                                            <span class="sr-only">Desplegar navegación</span>
-                                                            <span class="icon-bar"></span>
-                                                            <span class="icon-bar"></span>
-                                                            <span class="icon-bar"></span>
-                                                        </button>
-                                                    <a class="navbar-brand" href="#">NUFARM</a>
+                                        <nav class="nav navblack route-{{Route::currentRouteName()}}" role="navigation">
+                                            <div class="container">
+                                                <div class="row">
+                                                     <div class="navbar-header col-md-7">
+                                                        <h1 class="text-uppercase">Cantidad de Encuestas realizadas: <span>{{ $users = DB::table('usuario_encuesta')->count(); }}</span></h1>
+                                                          <!--   <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                                                data-target=".navbar-ex1-collapse">
+                                                                <span class="sr-only">Desplegar navegación</span>
+                                                                <span class="icon-bar"></span>
+                                                                <span class="icon-bar"></span>
+                                                                <span class="icon-bar"></span>
+                                                            </button> -->
+                                                    </div>
+                                                    <div class="pull-right col-md-3 ">
+                                                        <ul class="nav-custom-black pull-right">
+                                                            <li class="active"><a class="text-right" href="{{ url('/logout') }}">SALIR</a></li>
+                                                            <li><a class="text-right" href="{{ URL::route('metricas-encuesta') }}" >MÉTRICAS Y PORCENTAJES </a></li>
+                                                            <li ><a class="text-right" href="{{ URL::route('lista-encuesta') }}" >LISTADO DE ENCUESTAS</a></li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
-
-                                                <div class="collapse navbar-collapse navbar-ex1-collapse ">
-                                                    <ul class="nav navbar-nav navbar-right">
-                                                             <li><a href="{{ URL::route('metricas-encuesta') }}" id="metricas">Métricas y porcentajes </a></li>
-                                                             <li ><a href="{{ URL::route('lista-encuesta') }}" id="lista-encuestas">Listado de encuestas</a></li>
-                                                             <li class="active"><a href="{{ action('AuthController@logOut') }}">Logout</a></li>
-                                                    </ul>
-                                                </div>
+                                            </div>
                                         </nav>
-
                                         @section('sidebar')
 
                                                 
@@ -44,6 +50,15 @@
                             <!-- //contenedor -->
 
 
-
-            </body>
+        <script>
+        console.log($('.ident').parent());
+        jQuery(document).ready(function($) {
+            // $('.ident').css('margin-top', $('.ident').parent().height() / 2);
+            $.each($('.ident'), function(index, val) {
+                var margintop = ($(val).parent().parent().height() - 50) / 2;
+                $(val).css('margin-top', margintop);
+            });
+        });
+        </script>
+        </body>
 </html>

@@ -1,8 +1,16 @@
 @font-face {
   font-family: "BrooklynSamuelsFive-Bold";
   src: url("../fuentes/Samuelstype - BrooklynSamuelsFive-Bold.otf"); }
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  height: 100%; }
+
 body {
-  font-family: 'Arial'; }
+  font-family: 'Arial';
+  background: url(../imagenes/backgrounds-03.jpg);
+  background-size: cover; }
 
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3,
 .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5,
@@ -13,14 +21,28 @@ body {
   padding-left: 0px !important;
   padding-right: 0px !important; }
 
+.container {
+  max-width: 800px; }
+
 ul, li {
   text-decoration: none;
   list-style: none;
   margin: 0;
   padding: 0; }
 
+.vertical-align {
+  position: relative;
+  top: -50%;
+  -webkit-transform: translateY(50%);
+  -ms-transform: translateY(50%);
+  -o-transform: translateY(50%);
+  transform: translateY(50%); }
+
 :focus {
   outline: 0; }
+
+.per100 {
+  height: 100%; }
 
 a:hover, a:focus {
   color: #0e7e02;
@@ -35,6 +57,68 @@ a {
 .titulo-general {
   margin-top: 35px; }
 
+.no-pd {
+  padding-left: 0;
+  padding-right: 0; }
+
+.navblack {
+  background: rgba(43, 43, 43, 0.6);
+  background-color: rgba(43, 43, 43, 0.6); }
+  .navblack .navbar-header {
+    height: 100%; }
+    .navblack .navbar-header h1 {
+      line-height: 99px;
+      font-size: 19.78px;
+      color: white;
+      font-family: 'BrooklynSamuelsFive-Bold';
+      margin: 0;
+      height: 100%; }
+      .navblack .navbar-header h1 span {
+        font-size: 32.36px;
+        position: relative;
+        top: 3px; }
+
+header {
+  background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwOTU0OCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjclIiBzdG9wLWNvbG9yPSIjMDA5NTQ4IiBzdG9wLW9wYWNpdHk9IjAuOTkiLz4KICAgIDxzdG9wIG9mZnNldD0iNDUlIiBzdG9wLWNvbG9yPSIjMDA5NTQ4IiBzdG9wLW9wYWNpdHk9IjAuMzYiLz4KICAgIDxzdG9wIG9mZnNldD0iNDYlIiBzdG9wLWNvbG9yPSIjMDA5NTQ4IiBzdG9wLW9wYWNpdHk9IjAuMzYiLz4KICAgIDxzdG9wIG9mZnNldD0iNTElIiBzdG9wLWNvbG9yPSIjMDA5NTQ4IiBzdG9wLW9wYWNpdHk9IjAuNTciLz4KICAgIDxzdG9wIG9mZnNldD0iNTclIiBzdG9wLWNvbG9yPSIjMDA5NTQ4IiBzdG9wLW9wYWNpdHk9IjAuNzMiLz4KICAgIDxzdG9wIG9mZnNldD0iNjMlIiBzdG9wLWNvbG9yPSIjMDA5NTQ4IiBzdG9wLW9wYWNpdHk9IjAuODciLz4KICAgIDxzdG9wIG9mZnNldD0iNjklIiBzdG9wLWNvbG9yPSIjMDA5NTQ4IiBzdG9wLW9wYWNpdHk9IjAuOTUiLz4KICAgIDxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjMDA5NTQ4IiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwOTU0OCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+  background: -moz-linear-gradient(left, #009548 0%, rgba(0, 149, 72, 0.99) 7%, rgba(0, 149, 72, 0.36) 45%, rgba(0, 149, 72, 0.36) 46%, rgba(0, 149, 72, 0.57) 51%, rgba(0, 149, 72, 0.73) 57%, rgba(0, 149, 72, 0.87) 63%, rgba(0, 149, 72, 0.95) 69%, #009548 75%, #009548 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #009548), color-stop(7%, rgba(0, 149, 72, 0.99)), color-stop(45%, rgba(0, 149, 72, 0.36)), color-stop(46%, rgba(0, 149, 72, 0.36)), color-stop(51%, rgba(0, 149, 72, 0.57)), color-stop(57%, rgba(0, 149, 72, 0.73)), color-stop(63%, rgba(0, 149, 72, 0.87)), color-stop(69%, rgba(0, 149, 72, 0.95)), color-stop(75%, #009548), color-stop(100%, #009548));
+  background: -webkit-linear-gradient(left, #009548 0%, rgba(0, 149, 72, 0.99) 7%, rgba(0, 149, 72, 0.36) 45%, rgba(0, 149, 72, 0.36) 46%, rgba(0, 149, 72, 0.57) 51%, rgba(0, 149, 72, 0.73) 57%, rgba(0, 149, 72, 0.87) 63%, rgba(0, 149, 72, 0.95) 69%, #009548 75%, #009548 100%);
+  background: -o-linear-gradient(left, #009548 0%, rgba(0, 149, 72, 0.99) 7%, rgba(0, 149, 72, 0.36) 45%, rgba(0, 149, 72, 0.36) 46%, rgba(0, 149, 72, 0.57) 51%, rgba(0, 149, 72, 0.73) 57%, rgba(0, 149, 72, 0.87) 63%, rgba(0, 149, 72, 0.95) 69%, #009548 75%, #009548 100%);
+  background: -ms-linear-gradient(left, #009548 0%, rgba(0, 149, 72, 0.99) 7%, rgba(0, 149, 72, 0.36) 45%, rgba(0, 149, 72, 0.36) 46%, rgba(0, 149, 72, 0.57) 51%, rgba(0, 149, 72, 0.73) 57%, rgba(0, 149, 72, 0.87) 63%, rgba(0, 149, 72, 0.95) 69%, #009548 75%, #009548 100%);
+  background: linear-gradient(to right, #009548 0%, rgba(0, 149, 72, 0.99) 7%, rgba(0, 149, 72, 0.36) 45%, rgba(0, 149, 72, 0.36) 46%, rgba(0, 149, 72, 0.57) 51%, rgba(0, 149, 72, 0.73) 57%, rgba(0, 149, 72, 0.87) 63%, rgba(0, 149, 72, 0.95) 69%, #009548 75%, #009548 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009548', endColorstr='#009548',GradientType=1 );
+  height: 118px; }
+  header .logo-header {
+    background: url(../imagenes/Nufarm-max-logo.png) no-repeat center;
+    height: 100%;
+    width: 311px;
+    margin: 0 auto; }
+
+.nav-custom-black {
+  padding-top: 12px;
+  padding-bottom: 12px; }
+  .nav-custom-black li {
+    display: block; }
+    .nav-custom-black li:hover {
+      background: rgba(255, 255, 255, 0.15) !important;
+      background-color: rgba(255, 255, 255, 0.15) !important; }
+    .nav-custom-black li a {
+      font-family: 'BrooklynSamuelsFive-Bold';
+      display: block;
+      line-height: 23.5px;
+      color: white !important;
+      padding: 1px;
+      padding-left: 5px; }
+
+.ident {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  color: #963683;
+  border: 2px solid #963683;
+  text-align: center;
+  line-height: 50px; }
+
 .metricas h5 {
   font-size: 14px;
   margin-top: 20px;
@@ -47,6 +131,8 @@ a {
   width: 100%; }
 .metricas p {
   font-size: 12px; }
+.metricas .row-text {
+  float: left; }
 .metricas .num-violeta {
   width: 50px;
   height: 50px;
@@ -63,15 +149,16 @@ a {
     margin-top: 3px;
     margin-left: -1px; }
 .metricas .block-pregunta {
-  margin-top: 40px; }
+  background: rgba(58, 58, 58, 0.5);
+  background-color: rgba(58, 58, 58, 0.5);
+  padding-top: 37px;
+  padding-bottom: 27px;
+  margin-top: 14px;
+  font-family: "BrooklynSamuelsFive-Bold"; }
   .metricas .block-pregunta .sub-preguntas {
     width: 100%;
-    float: leftt;
-    margin-bottom: 1px;
-    display: table;
-    box-sizing: border-box; }
+    margin-bottom: 1px; }
     .metricas .block-pregunta .sub-preguntas .block {
-      display: table-cell;
       vertical-align: middle;
       position: relative;
       top: 50%;
@@ -79,15 +166,35 @@ a {
       margin-top: 0; }
     .metricas .block-pregunta .sub-preguntas .contenido {
       height: auto; }
+  .metricas .block-pregunta .respuestas .si, .metricas .block-pregunta .respuestas .no {
+    height: 50px;
+    width: 50px;
+    border: 1px solid white;
+    text-align: center;
+    line-height: 50px;
+    display: inline-block;
+    border-radius: 50%;
+    color: white;
+    font-size: 27px;
+    font-family: 'BrooklynSamuelsFive-Bold';
+    position: relative; }
+    .metricas .block-pregunta .respuestas .si:before, .metricas .block-pregunta .respuestas .no:before {
+      content: "";
+      position: absolute;
+      font-size: 12px;
+      top: -39px;
+      left: 0;
+      width: 100%; }
+  .metricas .block-pregunta .respuestas .si {
+    background: rgba(255, 255, 255, 0.1); }
+    .metricas .block-pregunta .respuestas .si:before {
+      content: "SI"; }
+  .metricas .block-pregunta .respuestas .no:before {
+    content: "NO"; }
   .metricas .block-pregunta .preguntas {
     width: 100%;
-    float: leftt;
-    height: 60px;
-    margin-bottom: 1px;
-    display: table;
-    box-sizing: border-box; }
+    margin-bottom: 1px; }
     .metricas .block-pregunta .preguntas .block {
-      display: table-cell;
       vertical-align: middle;
       position: relative;
       top: 50%;
@@ -108,7 +215,8 @@ a {
       display: inline-block; }
 .metricas .text-pregunta {
   float: left;
-  width: 60%; }
+  width: 60%;
+  color: white; }
 .metricas .panel-success {
   margin-bottom: -20px; }
 

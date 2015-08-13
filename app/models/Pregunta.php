@@ -1,8 +1,15 @@
 <?php 
 
-class Pregunta extends Eloquent { //Todos los modelos deben extender la clase Eloquent
+class Pregunta extends Eloquent {
     protected $table = 'pregunta';
     protected $fillable = array('nombre');
+
+
+
+    public function respuestas(){
+    	return $this->hasMany('respuesta', 'idEncuestaPregunta');
+    }
+
 }
 
 ?>
